@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import '@fontsource/iosevka-aile';
+
+@theme {
+  --font-sans: 'Iosevka Aile', 'sans-serif';
+}
