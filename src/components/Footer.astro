@@ -1,0 +1,21 @@
+---
+import { Icon } from "astro-icon/components";
+import Contacts from "./Contacts.astro";
+---
+
+<footer class="footer sm:footer-horizontal bg-neutral text-neutral-content p-10">
+  <aside>
+    <Icon name="wintertia" class="w-12 h-12 mb-2"/>
+    <p>
+      <span class="font-bold">Wintertia</span>
+      <br>
+      Copyright © {new Date().getFullYear()} - All rights reserved
+    </p>
+  </aside>
+  <nav>
+    <h6 class="footer-title">Socials</h6>
+    <div class="grid grid-flow-col gap-4">
+      <Contacts />
+    </div>
+  </nav>
+</footer>
