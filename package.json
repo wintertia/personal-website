@@ -13,6 +13,7 @@
     "@fontsource/iosevka-aile": "^5.2.5",
     "@tailwindcss/vite": "^4.1.13",
     "astro": "^5.13.10",
+    "daisyui": "^5.1.14",
     "tailwindcss": "^4.1.13"
   }
 }
