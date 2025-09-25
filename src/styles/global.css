@@ -1,12 +1,12 @@
 @import "tailwindcss";
-@import '@fontsource/iosevka-aile';
+@import "@fontsource/iosevka-aile";
 
 @plugin "daisyui";
 @plugin "daisyui/theme" {
   name: "rose-pine-moon";
-  default: false; 
-  prefersdark: true; 
-  color-scheme: dark; 
+  default: false;
+  prefersdark: true;
+  color-scheme: dark;
 
   --color-base-100: #232136;
   --color-base-200: #2a273f;
@@ -47,5 +47,5 @@
 }
 
 @theme {
-  --font-sans: 'Iosevka Aile', 'sans-serif';
+  --font-sans: "Iosevka Aile", "sans-serif";
 }

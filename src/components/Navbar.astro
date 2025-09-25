@@ -1,16 +1,29 @@
 ---
-import { Icon } from "astro-icon/components"
+import { Icon } from "astro-icon/components";
 ---
 
 <div class="navbar bg-base-100 shadow-sm">
   <div class="navbar-start mx-1">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h8m-8 6h16"></path>
+        </svg>
       </div>
       <ul
         tabindex="0"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+      >
         <li><a>About</a></li>
         <li><a>Projects</a></li>
         <li><a>Writeups</a></li>
@@ -19,7 +32,7 @@ import { Icon } from "astro-icon/components"
     <Icon name="wintertia" size="2rem" class="hidden lg:block" />
     <a class="btn btn-ghost text-xl font-bold">Wintertia</a>
   </div>
-  <div class="navbar-end hidden lg:flex mx-1">
+  <div class="navbar-end mx-1 hidden lg:flex">
     <ul class="menu menu-horizontal">
       <li><a>About</a></li>
       <li><a>Projects</a></li>
