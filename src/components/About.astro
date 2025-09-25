@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+---
+
+<div class="min-h-100 flex items-center justify-center">
+  <div class="mockup-window border bg-neutral border-base-300 w-full lg:w-2/3 m-8">
+    <div class="grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 place-items-stretch gap-8 p-8 border-t border-base-300 h-100">
+      <div class="max-md:mask max-md:mask-circle aspect-square overflow-hidden md:rounded-xl">
+        <Image src="https://placehold.co/600x600/"
+          width=400
+          height=600
+          alt="Face"
+          class="md:object-cover object-center h-full w-full"
+        />
+      </div>
+      <div class="row-span-2 md:col-span-2 text-center md:text-justify text-xs md:text-lg">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi consectetur felis non neque viverra convallis non sed ex. Nam bibendum erat et dictum maximus. Duis ultrices dolor non massa hendrerit, eget sollicitudin sem ullamcorper. Nunc suscipit venenatis scelerisque. Duis et elit sed enim tincidunt tempor. Sed id tincidunt metus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc a maximus dolor. 
+      </div>
+    </div>
+  </div>
+</div>

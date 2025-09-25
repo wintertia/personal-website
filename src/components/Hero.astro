@@ -1,13 +1,14 @@
 ---
 import { Image } from "astro:assets";
 import CyberpunkBackground from "../images/cyberpunk-city.jpg";
+import Contacts from "./Contacts.astro";
 ---
 
 <div class="hero min-h-[calc(100vh-4rem)] relative">
   <Image 
     src={CyberpunkBackground} 
     alt="Cyberpunk city background" 
-    class="absolute inset-0 w-full h-full object-cover -z-10"
+    class="absolute inset-0 w-full h-full object-cover -z-10 blur-xs"
     width={1920}
     height={1080}
     format="webp"
@@ -17,12 +18,11 @@ import CyberpunkBackground from "../images/cyberpunk-city.jpg";
   <div class="hero-overlay bg-neutral/60"></div>
   <div class="hero-content text-neutral-content text-center">
     <div class="max-w-md">
-      <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
-      <p class="mb-5">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-        quasi. In deleniti eaque aut repudiandae et a id nisi.
+      <h1 class="mb-5 text-4xl font-bold">I'm Amoes Noland.</h1>
+      <p class="mb-5 text-lg">
+        Cybersecurity & Binary Exploitation Enthusiast, Entry Level Web/Game Developer, IT Student.
       </p>
-      <button class="btn btn-primary">Get Started</button>
+      <Contacts />
     </div>
   </div>
 </div>
