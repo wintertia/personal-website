@@ -19,10 +19,17 @@ import { Image } from "astro:assets";
         />
       </div>
       <div
-        class="overflow-scroll text-center max-[468px]:text-xs md:text-left md:text-lg"
+        class="overflow-scroll text-center max-[468px]:text-xs md:text-justify md:text-lg"
       >
         <p>
-          I’m an IT student at <a
+          I’m a
+          {
+            Math.floor(
+              (new Date().getTime() - new Date("2004-11-19").getTime()) /
+                (1000 * 60 * 60 * 24 * 365.25),
+            )
+          }
+          year old IT student at <a
             href="https://www.its.ac.id/"
             class="link link-primary">ITS</a
           > and part of <a
