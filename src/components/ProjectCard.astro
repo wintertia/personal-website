@@ -1,0 +1,39 @@
+---
+interface Props {
+  title?: string;
+  points?: Array<string>;
+  stack?: Array<string>;
+  link?: string;
+}
+
+const {
+  title = "Project",
+  points = ["Placeholder 1", "Placeholder 2"],
+  stack = ["Stack 1", "Stack 2"],
+  link = "https://github.com/wintertia",
+} = Astro.props;
+---
+
+<div class="card bg-neutral w-80 shadow-sm">
+  <figure>
+    <img src="https://placehold.co/600x400" alt="Shoes" />
+  </figure>
+  <div class="card-body gap-4">
+    <h2 class="card-title">
+      {title}
+    </h2>
+    <div class="card-actions justify-start">
+      {
+        stack.map((stack) => (
+          <div class="badge badge-outline badge-secondary">{stack}</div>
+        ))
+      }
+    </div>
+    <ul class="list-inside list-disc">
+      {points.map((point) => <li>{point}</li>)}
+    </ul>
+    <a href={link} target="_blank" rel="noopener noreferrer" class="">
+      <button class="btn btn-soft btn-primary w-full">Link to Project</button>
+    </a>
+  </div>
+</div>

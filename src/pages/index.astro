@@ -1,10 +1,14 @@
 ---
 import About from "../components/About.astro";
 import Hero from "../components/Hero.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Wintertia">
   <Hero />
   <About />
+  <div class="m-8 flex min-h-100 justify-center align-middle">
+    <ProjectCard />
+  </div>
 </Layout>
