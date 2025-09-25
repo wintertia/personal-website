@@ -4,32 +4,42 @@ import { Image } from "astro:assets";
 
 <div class="flex min-h-100 items-center justify-center">
   <div
-    class="mockup-window bg-neutral border-base-300 m-8 w-full border lg:w-2/3"
+    class="mockup-window bg-neutral border-base-300 m-8 w-full border lg:w-3/4"
   >
     <div
-      class="border-base-300 grid h-100 grid-rows-3 place-items-stretch gap-8 border-t p-8 md:grid-cols-3 md:grid-rows-1"
+      class="border-base-300 grid h-100 grid-rows-1 place-items-stretch gap-8 border-t p-8 max-[468px]:grid-rows-2 md:grid-cols-2"
     >
-      <div
-        class="max-md:mask aspect-square overflow-hidden max-md:mask-circle md:rounded-xl"
-      >
+      <div class="mask aspect-square overflow-hidden mask-circle">
         <Image
           src="https://placehold.co/600x600/"
-          width="400"
+          width="600"
           height="600"
           alt="Face"
           class="h-full w-full object-center md:object-cover"
         />
       </div>
       <div
-        class="row-span-2 text-center text-xs md:col-span-2 md:text-justify md:text-lg"
+        class="overflow-scroll text-center max-[468px]:text-xs md:text-left md:text-lg"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-        consectetur felis non neque viverra convallis non sed ex. Nam bibendum
-        erat et dictum maximus. Duis ultrices dolor non massa hendrerit, eget
-        sollicitudin sem ullamcorper. Nunc suscipit venenatis scelerisque. Duis
-        et elit sed enim tincidunt tempor. Sed id tincidunt metus. Orci varius
-        natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-        mus. Nunc a maximus dolor.
+        <p>
+          I’m an IT student at <a
+            href="https://www.its.ac.id/"
+            class="link link-primary">ITS</a
+          > and part of <a
+            href="https://hcs-team.com/"
+            class="link link-primary">Heroes Cyber Security</a
+          >, where I dive into the world of Cyber Security, especially binary
+          exploitation and CTFs. Beyond security, I enjoy building stuff on the
+          web with <a href="https://astro.build/" class="link link-primary"
+            >Astro</a
+          >, making games with <a
+            href="https://luau.org/"
+            class="link link-primary">Roblox Luau</a
+          >, and recently learning <a
+            href="https://godotengine.org/"
+            class="link link-primary">Godot</a
+          > to expand my game dev journey.
+        </p>
       </div>
     </div>
   </div>
