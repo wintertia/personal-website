@@ -1,52 +1,77 @@
 ---
 import { Image } from "astro:assets";
+import BlockWave from "../images/blockwavemoon.png";
 ---
 
-<div class="flex min-h-100 items-center justify-center">
+<div class="relative py-16">
+  <Image
+    src={BlockWave}
+    alt="Block wave background"
+    class="absolute inset-0 -z-20 h-full w-full object-cover"
+    width={2560}
+    height={1230}
+    format="webp"
+    quality={80}
+  />
+
   <div
-    class="mockup-window bg-neutral border-base-300 m-8 w-full border lg:w-3/4"
+    class="from-base-100 absolute inset-0 -z-10 h-full w-full bg-gradient-to-b via-transparent to-transparent"
   >
+  </div>
+  <div
+    class="from-base-100 absolute inset-0 -z-10 h-full w-full bg-gradient-to-t via-transparent to-transparent"
+  >
+  </div>
+
+  <div class="mx-auto justify-self-center text-center text-6xl font-bold">
+    About Me
+  </div>
+  <div class="flex min-h-100 items-center justify-center">
     <div
-      class="border-base-300 grid h-100 grid-rows-1 place-items-stretch gap-8 border-t p-8 max-[468px]:grid-rows-2 md:grid-cols-2"
+      class="mockup-window bg-neutral border-base-300 m-8 w-full border-2 lg:w-3/4 xl:w-5/8"
     >
-      <div class="mask aspect-square overflow-hidden mask-circle">
-        <Image
-          src="https://placehold.co/600x600/"
-          width="600"
-          height="600"
-          alt="Face"
-          class="h-full w-full object-center md:object-cover"
-        />
-      </div>
       <div
-        class="overflow-scroll text-center max-[468px]:text-xs md:text-justify md:text-lg"
+        class="border-base-300 grid h-100 grid-rows-1 place-items-stretch gap-8 border-t p-8 max-[468px]:grid-rows-2 md:grid-cols-2"
       >
-        <p>
-          I’m a
-          {
-            Math.floor(
-              (new Date().getTime() - new Date("2004-11-19").getTime()) /
-                (1000 * 60 * 60 * 24 * 365.25),
-            )
-          }
-          year old IT student at <a
-            href="https://www.its.ac.id/"
-            class="link link-primary">ITS</a
-          > and part of <a
-            href="https://hcs-team.com/"
-            class="link link-primary">Heroes Cyber Security</a
-          >, where I dive into the world of Cyber Security, especially binary
-          exploitation and CTFs. Beyond security, I enjoy building stuff on the
-          web with <a href="https://astro.build/" class="link link-primary"
-            >Astro</a
-          >, making games with <a
-            href="https://luau.org/"
-            class="link link-primary">Roblox Luau</a
-          >, and recently learning <a
-            href="https://godotengine.org/"
-            class="link link-primary">Godot</a
-          > to expand my game dev journey.
-        </p>
+        <div class="mask aspect-square overflow-hidden mask-circle">
+          <Image
+            src="https://placehold.co/600x600/"
+            width="600"
+            height="600"
+            alt="Face"
+            class="h-full w-full object-center md:object-cover"
+          />
+        </div>
+        <div class="self-center text-center max-[468px]:text-sm md:text-lg">
+          <p>
+            I’m a
+            {
+              Math.floor(
+                (new Date().getTime() - new Date("2004-11-19").getTime()) /
+                  (1000 * 60 * 60 * 24 * 365.25),
+              )
+            }
+            year old IT student at <a
+              href="https://www.its.ac.id/"
+              class="decoration-primary/70 italic underline decoration-2 underline-offset-2"
+              >ITS</a
+            > and part of <a
+              href="https://hcs-team.com/"
+              class="decoration-primary/70 italic underline decoration-2 underline-offset-2"
+              >Heroes Cyber Security</a
+            >, where I dive into the world of Cyber Security, especially binary
+            exploitation and CTFs. Beyond security, I enjoy building stuff on
+            the web with <a
+              href="https://astro.build/"
+              class="decoration-primary/70 italic underline decoration-2 underline-offset-2"
+              >Astro</a
+            >, and game development with <a
+              href="https://luau.org/"
+              class="decoration-primary/70 italic underline decoration-2 underline-offset-2"
+              >Roblox Luau</a
+            >.
+          </p>
+        </div>
       </div>
     </div>
   </div>

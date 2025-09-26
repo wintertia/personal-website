@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "@fontsource/iosevka-aile";
+/* @import '@coreui/icons/css/all.min.css'; */
 
 @plugin "@tailwindcss/typography";
 @plugin "daisyui";
@@ -29,6 +30,8 @@
   --color-warning-content: #232136;
   --color-error: #eb6f92;
   --color-error-content: #232136;
+  --color-muted: #6e6a86;
+  --color-muted-content: #6e6a86;
 
   /* border radius */
   --radius-selector: 1rem;

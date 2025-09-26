@@ -1,0 +1,13 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  name: string;
+}
+
+const { name } = Astro.props;
+---
+
+<div class="bg-base-300 h-32 w-32 rounded-lg p-4">
+  <Icon name={`techstack/${name}`} size="100%" />
+</div>
