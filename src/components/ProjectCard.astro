@@ -4,6 +4,7 @@ interface Props {
   points?: Array<string>;
   stack?: Array<string>;
   link?: string;
+  image?: string;
 }
 
 const {
@@ -11,29 +12,31 @@ const {
   points = ["Placeholder 1", "Placeholder 2"],
   stack = ["Stack 1", "Stack 2"],
   link = "https://github.com/wintertia",
+  image = "https://placehold.co/600x400",
 } = Astro.props;
 ---
 
-<div class="card bg-neutral border-base-300 w-80 border-2 shadow-xl">
-  <figure>
-    <img src="https://placehold.co/600x400" alt="Shoes" />
-  </figure>
-  <div class="card-body gap-4">
-    <h2 class="card-title">
-      {title}
-    </h2>
-    <div class="card-actions justify-start">
-      {
-        stack.map((stack) => (
-          <div class="badge badge-outline badge-secondary">{stack}</div>
-        ))
-      }
+<a href={link} target="_blank" rel="noopener noreferrer" class="">
+  <div
+    class="card bg-neutral border-base-300 h-110 w-80 overflow-hidden rounded-xl border-2 shadow-xl"
+  >
+    <div class="aspect-video">
+      <img src={image} alt={title} />
     </div>
-    <ul class="list-inside list-disc">
-      {points.map((point) => <li>{point}</li>)}
-    </ul>
-    <a href={link} target="_blank" rel="noopener noreferrer" class="">
-      <button class="btn btn-soft btn-primary w-full">Link to Project</button>
-    </a>
+    <div class="card-body gap-4">
+      <h2 class="card-title">
+        {title}
+      </h2>
+      <div class="card-actions justify-start">
+        {
+          stack.map((stack) => (
+            <div class="badge badge-outline badge-secondary">{stack}</div>
+          ))
+        }
+      </div>
+      <ul class="list-inside list-disc overflow-scroll">
+        {points.map((point) => <li>{point}</li>)}
+      </ul>
+    </div>
   </div>
-</div>
+</a>

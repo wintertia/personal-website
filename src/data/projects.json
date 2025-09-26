@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "title": "Personal Website",
+      "points": [
+        "Static site to showcase my profile and interests",
+        "Used Astro's content collection to host my blog"
+      ],
+      "stack": ["Astro", "HTML", "Tailwind CSS"],
+      "link": "https://github.com/wintertia/portfolio-blog-writeups",
+      "image": "https://placehold.co/600x400"
+    },
+    {
+      "title": "test1",
+      "points": [
+        "look at these descriptions",
+        "imagine if we had so much filler it takes up many lines",
+        "that would be a shame"
+      ],
+      "stack": ["A", "B"],
+      "link": "https://github.com/wintertia/portfolio-blog-writeups",
+      "image": "https://placehold.co/600x400"
+    },
+    {
+      "title": "test2",
+      "points": ["idk man", "yeah maybe"],
+      "stack": ["D", "E"],
+      "link": "https://github.com/wintertia/portfolio-blog-writeups",
+      "image": "https://placehold.co/600x400"
+    }
+  ]
+}
