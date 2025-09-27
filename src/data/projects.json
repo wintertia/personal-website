@@ -6,8 +6,8 @@
         "Static site to showcase my profile and interests",
         "Used Astro's content collection to host my blog"
       ],
-      "stack": ["Astro", "HTML", "Tailwind CSS"],
-      "link": "https://github.com/wintertia/portfolio-blog-writeups",
+      "stack": ["Astro", "Tailwind CSS"],
+      "link": "https://github.com/wintertia/personal-website",
       "image": "https://placehold.co/600x400"
     },
     {
@@ -18,14 +18,24 @@
         "that would be a shame"
       ],
       "stack": ["A", "B"],
-      "link": "https://github.com/wintertia/portfolio-blog-writeups",
+      "link": "https://github.com/wintertia/personal-website",
       "image": "https://placehold.co/600x400"
     },
     {
       "title": "test2",
       "points": ["idk man", "yeah maybe"],
       "stack": ["D", "E"],
-      "link": "https://github.com/wintertia/portfolio-blog-writeups",
+      "link": "https://github.com/wintertia/personal-website",
+      "image": "https://placehold.co/600x400"
+    },
+    {
+      "title": "test3",
+      "points": [
+        "really long description thatd force the other card to make its height really really long i think i hope it works please work please work please work",
+        "okay sick it works"
+      ],
+      "stack": ["F", "G"],
+      "link": "https://github.com/wintertia/personal-website",
       "image": "https://placehold.co/600x400"
     }
   ]
