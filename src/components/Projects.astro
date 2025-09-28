@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import projects from "../data/projects.json";
-import BlockWave from "../images/backgrounds/blockwavemoon.png";
+import Contourline from "../images/backgrounds/contourline.png";
 import ProjectCard from "./ProjectCard.astro";
 
 interface Props {
@@ -16,9 +16,9 @@ const { display } = Astro.props;
     display === 2 ? (
       <>
         <Image
-          src={BlockWave}
+          src={Contourline}
           alt="Block wave background"
-          class="absolute inset-0 -z-20 h-full w-full object-cover"
+          class="absolute inset-0 -z-20 h-full w-full object-cover opacity-30"
           width={2560}
           height={1230}
           format="webp"

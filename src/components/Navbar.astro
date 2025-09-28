@@ -2,7 +2,9 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<div class="navbar bg-base-100 shadow-sm">
+<div
+  class="navbar from-base-100 fixed top-0 z-50 bg-gradient-to-b to-transparent shadow-sm"
+>
   <div class="navbar-start mx-1">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -30,9 +32,9 @@ import { Icon } from "astro-icon/components";
       </ul>
     </div>
     <Icon name="social/wintertia" size="2rem" class="hidden lg:block" />
-    <a href="/" class="btn btn-ghost text-xl font-bold">Wintertia</a>
+    <a href="/" class="mx-4 text-xl font-bold">Wintertia</a>
   </div>
-  <div class="navbar-end mx-1 hidden lg:flex">
+  <div class="navbar-end hidden lg:flex">
     <ul class="menu menu-horizontal">
       <li><a href="/">About</a></li>
       <li><a href="/projects/">Projects</a></li>
