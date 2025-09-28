@@ -3,40 +3,22 @@
     {
       "title": "Personal Website",
       "points": [
-        "Static site to showcase my profile and interests",
+        "Static site to showcase my profile, projects, and interests",
         "Used Astro's content collection to host my blog"
       ],
       "stack": ["Astro", "Tailwind CSS"],
       "link": "https://github.com/wintertia/personal-website",
-      "image": "https://placehold.co/600x400"
+      "image": "personal-website.png"
     },
     {
-      "title": "test1",
+      "title": "Ubuntu WSL Dotfiles",
       "points": [
-        "look at these descriptions",
-        "imagine if we had so much filler it takes up many lines",
-        "that would be a shame"
+        "My personal workflow for Ubuntu on WSL",
+        "Includes setup for zsh, starship, tmux, and more"
       ],
-      "stack": ["A", "B"],
-      "link": "https://github.com/wintertia/personal-website",
-      "image": "https://placehold.co/600x400"
-    },
-    {
-      "title": "test2",
-      "points": ["idk man", "yeah maybe"],
-      "stack": ["D", "E"],
-      "link": "https://github.com/wintertia/personal-website",
-      "image": "https://placehold.co/600x400"
-    },
-    {
-      "title": "test3",
-      "points": [
-        "really long description thatd force the other card to make its height really really long i think i hope it works please work please work please work",
-        "okay sick it works"
-      ],
-      "stack": ["F", "G"],
-      "link": "https://github.com/wintertia/personal-website",
-      "image": "https://placehold.co/600x400"
+      "stack": ["Zsh", "Tmux"],
+      "link": "https://github.com/wintertia/ubuntu-wsl-dotfiles",
+      "image": "ubuntu-wsl-dotfiles.png"
     }
   ]
 }

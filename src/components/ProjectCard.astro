@@ -1,4 +1,5 @@
 ---
+import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
 interface Props {
@@ -14,8 +15,14 @@ const {
   points = ["Placeholder 1", "Placeholder 2"],
   stack = ["Stack 1", "Stack 2"],
   link = "https://github.com/wintertia",
-  image = "https://placehold.co/600x400",
+  image = "placeholder.svg",
 } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/images/project-thumbnails/*.{jpg,jpeg,png,svg}",
+);
+const imagePath = (await images[`/src/images/project-thumbnails/${image}`]())
+  .default;
 ---
 
 <a href={link} target="_blank" rel="noopener noreferrer" class="">
@@ -23,7 +30,7 @@ const {
     class="card bg-neutral border-base-300 h-full w-100 overflow-hidden rounded-xl border-2 shadow-xl"
   >
     <div class="">
-      <Image src={image} width={600} height={400} alt={title} />
+      <Image src={imagePath} width={600} height={400} alt={title} />
     </div>
     <div class="card-body gap-4">
       <h2 class="card-title">
