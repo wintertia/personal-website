@@ -11,20 +11,20 @@ interface Props {
 const { display } = Astro.props;
 ---
 
-<div class="bg-base-100 relative -z-30 min-h-[calc(100vh-4rem)] py-16">
+<div class="bg-base-100 relative min-h-[calc(100vh-4rem)] py-16">
   {
     display === 2 ? (
       <>
         <Image
           src={Contourline}
           alt="Contour line background"
-          class="absolute inset-0 -z-20 h-full w-full object-cover opacity-30"
+          class="absolute inset-0 z-0 h-full w-full object-cover opacity-30"
           width={2560}
           height={1230}
           format="webp"
           quality={80}
         />
-        <div class="from-base-100 absolute inset-0 -z-10 h-full w-full bg-gradient-to-b via-transparent to-transparent" />
+        <div class="from-base-100 absolute inset-0 z-0 h-full w-full bg-gradient-to-b via-transparent to-transparent" />
       </>
     ) : (
       ""
@@ -32,16 +32,18 @@ const { display } = Astro.props;
   }
 
   <div
-    class="from-base-200 absolute inset-0 -z-10 h-full w-full bg-gradient-to-t via-transparent to-transparent"
+    class="from-base-200 absolute inset-0 z-0 h-full w-full bg-gradient-to-t via-transparent to-transparent"
   >
   </div>
 
-  <div class="mx-auto justify-self-center text-center text-4xl font-bold">
+  <div
+    class="text-shadow-base-100/50 relative z-10 mx-auto justify-self-center text-center text-4xl font-bold text-shadow-lg"
+  >
     My Stuff
     <slot />
   </div>
   <div
-    class="align-stretch m-8 flex min-h-100 flex-row flex-wrap justify-center gap-8"
+    class="align-stretch relative z-10 m-8 flex min-h-100 flex-row flex-wrap justify-center gap-8"
   >
     {
       projects.data
@@ -59,7 +61,7 @@ const { display } = Astro.props;
   </div>
   {
     display === 2 ? (
-      <div class="flex justify-center">
+      <div class="relative z-10 flex justify-center">
         <a
           role="button"
           class="btn btn-neutral border-secondary rounded-xl border-2 text-xl"

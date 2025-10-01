@@ -3,7 +3,9 @@ import { Image } from "astro:assets";
 import BlockWave from "../images/backgrounds/blockwavemoon.png";
 ---
 
-<div class="relative py-16">
+<div
+  class="relative flex min-h-screen flex-col items-center justify-center py-16"
+>
   <Image
     src={BlockWave}
     alt="Block wave background"
@@ -23,7 +25,9 @@ import BlockWave from "../images/backgrounds/blockwavemoon.png";
   >
   </div>
 
-  <div class="mx-auto justify-self-center text-center text-6xl font-bold">
+  <div
+    class="text-shadow-base-100/50 mx-auto text-center text-6xl font-bold text-shadow-lg"
+  >
     About Me
   </div>
   <div class="flex min-h-100 items-center justify-center">
