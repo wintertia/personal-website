@@ -39,7 +39,7 @@ const { display } = Astro.props;
   <div
     class="text-shadow-base-100/50 relative z-10 mx-auto justify-self-center text-center text-4xl font-bold text-shadow-lg"
   >
-    My Stuff
+    <p class="project-title">My Stuff</p>
     <slot />
   </div>
   <div
@@ -61,7 +61,7 @@ const { display } = Astro.props;
   </div>
   {
     display === 2 ? (
-      <div class="relative z-10 flex justify-center">
+      <div class="project-card relative z-10 flex justify-center">
         <a
           role="button"
           class="btn btn-neutral border-secondary rounded-xl border-2 text-xl"
