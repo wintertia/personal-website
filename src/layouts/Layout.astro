@@ -40,8 +40,10 @@ const { title } = Astro.props;
   gsap.registerPlugin(SplitText, ScrollTrigger, ScrollSmoother);
   let ctx: gsap.Context | null = null;
   document.addEventListener("astro:page-load", () => {
-    ScrollTrigger.disable(false);
-    ScrollTrigger.enable();
+    const smoother = ScrollSmoother.get();
+    if (smoother) smoother.kill();
+    ScrollTrigger.clearScrollMemory();
+    ScrollTrigger.refresh();
     ctx && ctx.revert();
     ctx = gsap.context(() => {
       ScrollSmoother.create({
