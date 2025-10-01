@@ -8,7 +8,8 @@ import Socials from "./Socials.astro";
   <Image
     src={CyberpunkBackground}
     alt="Cyberpunk city background"
-    class="fixed inset-0 -z-50 h-full w-full object-cover blur-xs"
+    data-speed="0.5"
+    class="inset-0 -z-50 h-full w-full object-cover blur-xs"
     width={1920}
     height={1080}
     format="webp"
@@ -16,7 +17,7 @@ import Socials from "./Socials.astro";
   />
 
   <div class="hero-overlay bg-neutral/60"></div>
-  <div class="hero-content text-neutral-content text-center">
+  <div class="hero-content text-neutral-content text-center" data-speed="0.75">
     <div class="hero-box">
       <h1 class="hero-title mb-5 text-3xl font-black md:text-5xl">
         I'm Amoes Noland.

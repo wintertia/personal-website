@@ -6,7 +6,7 @@
         "Static site to showcase my profile, projects, and interests",
         "Used Astro's content collection to host my blog"
       ],
-      "stack": ["Astro", "Tailwind CSS"],
+      "stack": ["Astro", "Tailwind CSS", "GSAP"],
       "link": "https://github.com/wintertia/personal-website",
       "image": "personal-website.png"
     },

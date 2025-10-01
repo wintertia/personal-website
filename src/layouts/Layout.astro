@@ -21,24 +21,34 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <Navbar />
-    <slot />
-    <Footer />
+    <div id="smooth-wrapper">
+      <Navbar />
+      <div id="smooth-content">
+        <slot />
+        <Footer />
+      </div>
+    </div>
   </body>
 </html>
 
 <script>
   import gsap from "gsap";
+  import { ScrollSmoother } from "gsap/ScrollSmoother";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import { SplitText } from "gsap/SplitText";
 
-  gsap.registerPlugin(SplitText, ScrollTrigger);
+  gsap.registerPlugin(SplitText, ScrollTrigger, ScrollSmoother);
   let ctx: gsap.Context | null = null;
   document.addEventListener("astro:page-load", () => {
     ScrollTrigger.disable(false);
     ScrollTrigger.enable();
     ctx && ctx.revert();
     ctx = gsap.context(() => {
+      ScrollSmoother.create({
+        smooth: 1.5,
+        effects: true,
+      });
+
       // Hero Animations
       const heroTitle = new SplitText(".hero-title", {
         type: "chars",
