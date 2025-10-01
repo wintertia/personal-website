@@ -7,7 +7,9 @@ const { link } = Astro.props;
 ---
 
 <a href={link} target="_blank" rel="noopener noreferrer" class="social-button">
-  <div class="btn btn-ghost btn-circle items-center">
+  <div
+    class="btn btn-ghost btn-circle items-center transition duration-300 ease-in-out hover:scale-125"
+  >
     <slot />
   </div>
 </a>
