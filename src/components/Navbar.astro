@@ -31,11 +31,13 @@ import { Icon } from "astro-icon/components";
         </li>
         <li>
           <a class="text-shadow-black/50 text-shadow-lg" href="/projects/"
-            >Projects</a>
+            >Projects</a
+          >
         </li>
         <li>
           <a class="text-shadow-black/50 text-shadow-lg" href="/blog/"
-            >Writeups</a>
+            >Writeups</a
+          >
         </li>
       </ul>
     </div>
@@ -51,12 +53,24 @@ import { Icon } from "astro-icon/components";
       <li><a class="text-shadow-black/50 text-shadow-lg" href="/">About</a></li>
       <li>
         <a class="text-shadow-black/50 text-shadow-lg" href="/projects/"
-          >Projects</a>
+          >Projects</a
+        >
       </li>
       <li>
-        <a class="text-shadow-black/50 text-shadow-lg" href="/blog/"
-          >Writeups</a>
+        <a class="text-shadow-black/50 text-shadow-lg" href="/blog/">Writeups</a
+        >
       </li>
     </ul>
   </div>
 </div>
+
+<script>
+  import gsap from "gsap";
+  gsap.from(".navbar", {
+    duration: 2,
+    opacity: 0,
+    yPercent: -100,
+    ease: "power2.out",
+    delay: 0.5,
+  });
+</script>
