@@ -1,5 +1,10 @@
 {
   "data": [
+    "C",
+    "C++",
+    "Python",
+    "Lua",
+    "Bash",
     "Astro",
     "HTML",
     "CSS",
@@ -7,17 +12,14 @@
     "Typescript",
     "Tailwind",
     "GSAP",
-    "C",
-    "C++",
-    "Python",
-    "Lua",
-    "Bash",
     "Markdown",
     "Git",
     "Docker",
+    "Express",
+    "MongoDB",
+    "Mongoose",
     "Node",
     "NPM",
-    "Postman",
     "Cloudflare"
   ]
 }

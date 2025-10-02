@@ -149,7 +149,7 @@ const { title } = Astro.props;
       gsap.from([projectTitle.chars, projectSubtitle.words], {
         scrollTrigger: {
           trigger: ".project-card",
-          start: "top 60%",
+          start: "top 70%",
         },
         duration: 1,
         opacity: 0,
@@ -160,7 +160,7 @@ const { title } = Astro.props;
       gsap.from(".project-card", {
         scrollTrigger: {
           trigger: ".project-card",
-          start: "top 60%",
+          start: "top 70%",
         },
         duration: 1,
         opacity: 0,
@@ -173,7 +173,6 @@ const { title } = Astro.props;
       gsap.from([".footer-icon", ".footer-text", ".footer-nav"], {
         scrollTrigger: {
           trigger: "footer",
-          start: "top 80%",
         },
         duration: 2,
         opacity: 0,

@@ -1,15 +1,33 @@
 ---
+import { Image } from "astro:assets";
+import CyberpunkBackground from "../images/backgrounds/cyberpunkcity.jpg";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="404 Not Found">
-  <div
-    class="bg-base-100 flex min-h-screen flex-col items-center justify-center p-8 text-center"
-  >
-    <h1 class="text-warning mb-4 text-6xl font-bold">404 Not Found</h1>
-  </div>
-  <div
-    class="from-base-200 absolute inset-0 z-0 h-full w-full bg-gradient-to-t via-transparent to-transparent"
-  >
+  <div class="hero relative min-h-screen">
+    <Image
+      src={CyberpunkBackground}
+      alt="Cyberpunk city background"
+      class="inset-0 -z-50 h-full w-full object-cover blur-xs"
+      width={1920}
+      height={1080}
+      format="webp"
+      quality={80}
+    />
+    <div
+      class="from-base-200 absolute inset-0 z-0 h-full w-full bg-gradient-to-t to-transparent"
+    >
+    </div>
+    <div class="hero-overlay bg-neutral/60"></div>
+    <div class="hero-content text-neutral-content text-center">
+      <div class="hero-box">
+        <h1
+          class="hero-title text-primary z-10 mb-5 text-3xl font-black md:text-5xl"
+        >
+          404 Not Found
+        </h1>
+      </div>
+    </div>
   </div>
 </Layout>
