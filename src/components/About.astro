@@ -15,18 +15,20 @@ import { Image } from "astro:assets";
   </div>
 
   <div
-    class="about-title text-shadow-primary/50 mx-auto text-center text-6xl font-bold text-shadow-lg"
+    class="about-title mx-auto text-center text-4xl font-bold text-shadow-lg md:text-6xl"
   >
     About Me
   </div>
-  <div class="flex min-h-100 items-center justify-center">
+  <div class="flex min-h-120 items-center justify-center">
     <div
       class="about-box mockup-window bg-neutral border-primary/30 m-8 w-full border-2 lg:w-3/4 xl:w-5/8"
     >
       <div
-        class="border-primary/30 grid h-100 grid-rows-1 place-items-stretch gap-8 border-t p-8 max-[468px]:grid-rows-2 md:grid-cols-2"
+        class="border-primary/30 grid h-auto grid-rows-1 place-items-stretch gap-8 border-t p-8 max-[468px]:grid-rows-[auto_1fr] md:grid-cols-2 md:px-16"
       >
-        <div class="mask aspect-square overflow-hidden mask-circle">
+        <div
+          class="mask m-auto aspect-square max-h-40 max-w-40 overflow-hidden mask-circle md:max-h-76 md:max-w-76"
+        >
           <Image
             src="https://placehold.co/600x600/"
             width="600"
@@ -35,7 +37,7 @@ import { Image } from "astro:assets";
             class="h-full w-full object-center md:object-cover"
           />
         </div>
-        <div class="self-center text-center max-[468px]:text-sm md:text-lg">
+        <div class="self-center text-center text-sm md:text-lg">
           <p class="about-text">
             I’m a
             {
