@@ -9,7 +9,7 @@ import Socials from "./Socials.astro";
     src={CyberpunkBackground}
     alt="Cyberpunk city background"
     data-speed="0.5"
-    class="inset-0 -z-50 h-full w-full object-cover blur-xs"
+    class="inset-0 -z-50 h-full w-full object-cover"
     width={1920}
     height={1080}
     format="webp"
@@ -17,17 +17,18 @@ import Socials from "./Socials.astro";
   />
 
   <div class="hero-overlay bg-neutral/60"></div>
-  <div class="hero-content text-neutral-content text-center" data-speed="0.75">
-    <div class="hero-box">
-      <h1 class="hero-title mb-5 text-3xl font-black md:text-5xl">
+  <div class="hero-content text-center" data-speed="0.75">
+    <div
+      class="hero-box text-shadow-primary/50 inline-block max-w-lg text-shadow-lg"
+    >
+      <h1 class="hero-title mb-5 text-2xl font-black sm:text-3xl md:text-5xl">
         I'm Amoes Noland.
       </h1>
-      <p class="hero-subtitle text-md mb-5 text-balance md:text-xl">
-        Cybersecurity & Binary Exploitation Enthusiast,
-        <br class="hidden min-[990px]:block" />
-        Entry Level Web/Game Developer, IT Student.
+      <p class="hero-subtitle text-md mb-5 text-balance sm:text-lg md:text-xl">
+        Cybersecurity & Binary Exploitation Enthusiast, Entry Level Web/Game
+        Developer, IT Student.
       </p>
-      <Socials />
+      <Socials glow={true} />
     </div>
   </div>
 </div>

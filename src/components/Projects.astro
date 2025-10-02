@@ -1,7 +1,5 @@
 ---
-import { Image } from "astro:assets";
 import projects from "../data/projects.json";
-import Contourline from "../images/backgrounds/contourline.png";
 import ProjectCard from "./ProjectCard.astro";
 
 interface Props {
@@ -11,26 +9,13 @@ interface Props {
 const { display } = Astro.props;
 ---
 
-<div class="bg-base-100 relative min-h-[calc(100vh-4rem)] py-16">
-  {
-    display === 2 ? (
-      <>
-        <Image
-          src={Contourline}
-          alt="Contour line background"
-          class="absolute inset-0 z-0 h-full w-full object-cover opacity-30"
-          width={2560}
-          height={1230}
-          format="webp"
-          quality={80}
-        />
-        <div class="from-base-100 absolute inset-0 z-0 h-full w-full bg-gradient-to-b via-transparent to-transparent" />
-      </>
-    ) : (
-      ""
-    )
-  }
-
+<div
+  class="bg-base-100 relative min-h-[calc(100vh-4rem)] bg-[url('/src/images/backgrounds/grid-haikei.png')] bg-repeat py-16"
+>
+  <div
+    class="from-base-100 absolute inset-0 z-0 h-full w-full bg-gradient-to-b via-transparent to-transparent"
+  >
+  </div>
   <div
     class="from-base-200 absolute inset-0 z-0 h-full w-full bg-gradient-to-t via-transparent to-transparent"
   >

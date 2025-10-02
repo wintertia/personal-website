@@ -1,41 +1,30 @@
 ---
 import { Image } from "astro:assets";
-import BlockWave from "../images/backgrounds/blockwavemoon.png";
 ---
 
 <div
-  class="relative flex min-h-screen flex-col items-center justify-center py-16"
+  class="relative flex min-h-screen flex-col items-center justify-center bg-[url('/src/images/backgrounds/grid-magicpattern.png')] bg-cover py-16"
 >
-  <Image
-    src={BlockWave}
-    alt="Block wave background"
-    class="absolute inset-0 -z-20 h-full w-full object-cover blur-xs"
-    width={2560}
-    height={1230}
-    format="webp"
-    quality={80}
-  />
-
   <div
-    class="from-base-100 absolute inset-0 -z-10 h-full w-full bg-gradient-to-b via-transparent to-transparent"
+    class="from-base-100 absolute inset-0 z-0 h-full w-full bg-gradient-to-b via-transparent to-transparent"
   >
   </div>
   <div
-    class="from-base-100 absolute inset-0 -z-10 h-full w-full bg-gradient-to-t via-transparent to-transparent"
+    class="from-base-100 absolute inset-0 z-0 h-full w-full bg-gradient-to-t via-transparent to-transparent"
   >
   </div>
 
   <div
-    class="about-title text-shadow-base-100/50 mx-auto text-center text-6xl font-bold text-shadow-lg"
+    class="about-title text-shadow-primary/50 mx-auto text-center text-6xl font-bold text-shadow-lg"
   >
     About Me
   </div>
   <div class="flex min-h-100 items-center justify-center">
     <div
-      class="about-box mockup-window bg-neutral border-base-300 m-8 w-full border-2 lg:w-3/4 xl:w-5/8"
+      class="about-box mockup-window bg-neutral border-primary/30 m-8 w-full border-2 lg:w-3/4 xl:w-5/8"
     >
       <div
-        class="border-base-300 grid h-100 grid-rows-1 place-items-stretch gap-8 border-t p-8 max-[468px]:grid-rows-2 md:grid-cols-2"
+        class="border-primary/30 grid h-100 grid-rows-1 place-items-stretch gap-8 border-t p-8 max-[468px]:grid-rows-2 md:grid-cols-2"
       >
         <div class="mask aspect-square overflow-hidden mask-circle">
           <Image
