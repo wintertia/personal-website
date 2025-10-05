@@ -12,6 +12,7 @@
     "wrangler-deploy": "astro build && wrangler pages deploy ./dist"
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.3.6",
     "@fontsource/iosevka": "^5.2.5",
     "@fontsource/iosevka-aile": "^5.2.5",
     "@tailwindcss/vite": "^4.1.13",
