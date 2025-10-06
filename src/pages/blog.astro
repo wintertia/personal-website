@@ -15,7 +15,7 @@ const posts: CollectionEntry[] = await getCollection("posts").then(
       {
         posts.map((post) => (
           <div class="my-6 rounded-lg border border-[var(--color-border)] p-4 transition duration-300 hover:scale-[1.02] hover:shadow-lg">
-            <a href={`/blog/${post.slug}`}>
+            <a href={`/blog/${post.id}`}>
               <div class="mb-1 text-2xl font-semibold">{post.data.title}</div>
               <p class="line-clamp-2 text-justify text-[var(--color-muted)]">
                 {post.data.description}
