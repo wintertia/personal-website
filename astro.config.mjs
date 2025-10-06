@@ -18,6 +18,11 @@ export default defineConfig({
       },
     },
   },
+  markdown: {
+    shikiConfig: {
+      theme: "rose-pine-moon",
+    },
+  },
 
   integrations: [icon(), mdx()],
 });

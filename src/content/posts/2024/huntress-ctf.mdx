@@ -7,7 +7,7 @@ tags:
   - pwn
 ---
 
-# Baby Buffer Overflow - 32 bit
+## Baby Buffer Overflow - 32 bit
 
 > _Can you command this program to where it cannot go?_\
 > _To get the flag, you must somehow take control of its excecution._\
@@ -50,7 +50,7 @@ int main(){
 
 When I first tried running it, I was hit with an error where I couldn't run the binary or even compile the binary. Turns out, I just had to install `gcc-multilib` and then I was able to compile a binary using the command mentioned in the source code.
 
-After that, I followed [ir0nstone's ](https://ir0nstone.gitbook.io/notes/binexp/stack/ret2win)guide on ret2win. So after using a De-Brujin sequence and pasting it into radare2, I was able to obtain an offset to the EIP _(I didn't understand what an offset was doing back then... but now I do...)_, with these commands:
+After that, I followed [ir0nstone's](https://ir0nstone.gitbook.io/notes/binexp/stack/ret2win) guide on ret2win. So after using a De-Brujin sequence and pasting it into radare2, I was able to obtain an offset to the EIP _(I didn't understand what an offset was doing back then... but now I do...)_, with these commands:
 
 ```
 $ ragg2 -P 64 -r

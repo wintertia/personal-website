@@ -1,6 +1,5 @@
 ---
 import { ClientRouter } from "astro:transitions";
-import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
 import "../styles/global.css";
 
@@ -25,7 +24,6 @@ const { title } = Astro.props;
       <Navbar />
       <div id="smooth-content">
         <slot />
-        <Footer />
       </div>
     </div>
   </body>
@@ -36,149 +34,182 @@ const { title } = Astro.props;
   import { ScrollSmoother } from "gsap/ScrollSmoother";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import { SplitText } from "gsap/SplitText";
+  await document.fonts.ready;
 
   gsap.registerPlugin(SplitText, ScrollTrigger, ScrollSmoother);
   let ctx: gsap.Context | null = null;
   document.addEventListener("astro:page-load", () => {
-    const smoother = ScrollSmoother.get();
-    if (smoother) smoother.kill();
-    ScrollTrigger.clearScrollMemory();
-    ScrollTrigger.refresh();
-    ctx && ctx.revert();
-    ctx = gsap.context(() => {
-      ScrollSmoother.create({
-        smooth: 1.5,
-        effects: true,
-      });
+    requestAnimationFrame(() => {
+      const smoother = ScrollSmoother.get();
+      if (smoother) smoother.kill();
+      ScrollTrigger.clearScrollMemory();
+      ScrollTrigger.refresh();
+      ctx && ctx.revert();
+      ctx = gsap.context(() => {
+        ScrollSmoother.create({
+          smooth: 1.5,
+          effects: true,
+        });
 
-      // Hero Animations
-      const heroTitle = new SplitText(".hero-title", {
-        type: "chars",
-      });
-      const heroSubtitle = new SplitText(".hero-subtitle", {
-        type: "words",
-      });
-      gsap.from(heroTitle.chars, {
-        duration: 1,
-        opacity: 0,
-        y: -20,
-        ease: "power2.out",
-        stagger: 0.07,
-      });
-      gsap.from(heroSubtitle.words, {
-        duration: 1,
-        opacity: 0,
-        y: -20,
-        ease: "power2.out",
-        delay: 0.25,
-        stagger: 0.07,
-      });
+        // Hero Animations
+        const heroTitleEl = document.querySelector(".hero-title");
+        const heroSubtitleEl = document.querySelector(".hero-subtitle");
+        if (heroTitleEl && heroSubtitleEl) {
+          const heroTitle = new SplitText(heroTitleEl, { type: "chars" });
+          const heroSubtitle = new SplitText(heroSubtitleEl, { type: "words" });
+          gsap.from(heroTitle.chars, {
+            duration: 1,
+            opacity: 0,
+            y: -20,
+            ease: "power2.out",
+            stagger: 0.07,
+          });
+          gsap.from(heroSubtitle.words, {
+            duration: 1,
+            opacity: 0,
+            y: -20,
+            ease: "power2.out",
+            delay: 0.25,
+            stagger: 0.07,
+          });
+        }
 
-      // Socials Animation
-      gsap.from(".social-button", {
-        duration: 1,
-        opacity: 0,
-        y: -20,
-        ease: "power2.out",
-        delay: 0.5,
-        stagger: 0.1,
-      });
+        // Socials Animation
+        const socialButtons = document.querySelectorAll(".social-button");
+        if (socialButtons.length > 0) {
+          gsap.from(socialButtons, {
+            duration: 1,
+            opacity: 0,
+            y: -20,
+            ease: "power2.out",
+            delay: 0.5,
+            stagger: 0.1,
+          });
+        }
 
-      // About Animation
-      const aboutTitle = new SplitText(".about-title", {
-        type: "chars",
-      });
-      gsap.from(aboutTitle.chars, {
-        scrollTrigger: {
-          trigger: ".about-box",
-          start: "top 70%",
-        },
-        duration: 1,
-        opacity: 0,
-        yPercent: -100,
-        ease: "power2.out",
-        stagger: 0.05,
-      });
-      gsap.from([".about-box", ".about-text"], {
-        scrollTrigger: {
-          trigger: ".about-box",
-          start: "top 70%",
-        },
-        duration: 1,
-        opacity: 0,
-        y: -20,
-        ease: "power2.out",
-        delay: 0.25,
-        stagger: 0.1,
-      });
+        // About Animation
+        const aboutTitleEl = document.querySelector(".about-title");
+        const aboutBoxEl = document.querySelector(".about-box");
+        if (aboutTitleEl && aboutBoxEl) {
+          const aboutTitle = new SplitText(aboutTitleEl, { type: "chars" });
+          gsap.from(aboutTitle.chars, {
+            scrollTrigger: {
+              trigger: aboutBoxEl,
+              start: "top 70%",
+            },
+            duration: 1,
+            opacity: 0,
+            yPercent: -100,
+            ease: "power2.out",
+            stagger: 0.05,
+          });
+          gsap.from([".about-box", ".about-text"], {
+            scrollTrigger: {
+              trigger: aboutBoxEl,
+              start: "top 70%",
+            },
+            duration: 1,
+            opacity: 0,
+            y: -20,
+            ease: "power2.out",
+            delay: 0.25,
+            stagger: 0.1,
+          });
+        }
 
-      // Stacks Animation
-      const stackTitle = new SplitText(".stack-title", {
-        type: "chars",
-      });
-      gsap.from(stackTitle.chars, {
-        scrollTrigger: {
-          trigger: ".stack-card",
-          start: "top 70%",
-        },
-        duration: 1,
-        opacity: 0,
-        yPercent: -100,
-        ease: "power2.out",
-        stagger: 0.05,
-      });
-      gsap.from(".stack-card", {
-        scrollTrigger: {
-          trigger: ".stack-card",
-          start: "top 70%",
-        },
-        duration: 1,
-        opacity: 0,
-        yPercent: -50,
-        ease: "power2.out",
-        stagger: 0.05,
-      });
+        // Stacks Animation
+        const stackTitleEl = document.querySelector(".stack-title");
+        const stackCards = document.querySelectorAll(".stack-card");
+        if (stackTitleEl && stackCards.length > 0) {
+          const stackTitle = new SplitText(stackTitleEl, { type: "chars" });
+          gsap.from(stackTitle.chars, {
+            scrollTrigger: {
+              trigger: stackCards[0],
+              start: "top 70%",
+            },
+            duration: 1,
+            opacity: 0,
+            yPercent: -100,
+            ease: "power2.out",
+            stagger: 0.05,
+          });
+          gsap.from(stackCards, {
+            scrollTrigger: {
+              trigger: stackCards[0],
+              start: "top 70%",
+            },
+            duration: 1,
+            opacity: 0,
+            yPercent: -50,
+            ease: "power2.out",
+            stagger: 0.05,
+          });
+        }
 
-      // Projects Animation
-      const projectTitle = new SplitText(".project-title", {
-        type: "chars",
-      });
-      const projectSubtitle = new SplitText(".project-subtitle", {
-        type: "words",
-      });
-      gsap.from([projectTitle.chars, projectSubtitle.words], {
-        scrollTrigger: {
-          trigger: ".project-card",
-          start: "top 70%",
-        },
-        duration: 1,
-        opacity: 0,
-        yPercent: -100,
-        ease: "power2.out",
-        stagger: 0.05,
-      });
-      gsap.from(".project-card", {
-        scrollTrigger: {
-          trigger: ".project-card",
-          start: "top 70%",
-        },
-        duration: 1,
-        opacity: 0,
-        yPercent: -20,
-        ease: "power2.out",
-        stagger: 0.1,
-      });
+        // Projects Animation
+        const projectTitleEl = document.querySelector(".project-title");
+        const projectSubtitleEl = document.querySelector(".project-subtitle");
+        const projectCards = document.querySelectorAll(".project-card");
+        if (projectTitleEl && projectCards.length > 0) {
+          const projectTitle = new SplitText(projectTitleEl, { type: "chars" });
+          gsap.from(projectTitle.chars, {
+            scrollTrigger: {
+              trigger: projectCards[0],
+              start: "top 70%",
+            },
+            duration: 1,
+            opacity: 0,
+            yPercent: -100,
+            ease: "power2.out",
+            stagger: 0.05,
+          });
+        }
+        if (projectSubtitleEl && projectCards.length > 0) {
+          const projectSubtitle = new SplitText(projectSubtitleEl, {
+            type: "words",
+          });
+          gsap.from(projectSubtitle.words, {
+            scrollTrigger: {
+              trigger: projectCards[0],
+              start: "top 70%",
+            },
+            duration: 1,
+            opacity: 0,
+            yPercent: -100,
+            ease: "power2.out",
+            stagger: 0.05,
+          });
+        }
+        if (projectCards.length > 0) {
+          gsap.from(projectCards, {
+            scrollTrigger: {
+              trigger: projectCards[0],
+              start: "top 70%",
+            },
+            duration: 1,
+            opacity: 0,
+            yPercent: -20,
+            ease: "power2.out",
+            stagger: 0.1,
+          });
+        }
 
-      // Footer Animation
-      gsap.from([".footer-icon", ".footer-text", ".footer-nav"], {
-        scrollTrigger: {
-          trigger: "footer",
-        },
-        duration: 2,
-        opacity: 0,
-        yPercent: -40,
-        ease: "power2.out",
-        stagger: 0.1,
+        // Footer Animation
+        const footerElements = document.querySelectorAll(
+          ".footer-icon, .footer-text, .footer-nav",
+        );
+        if (footerElements.length > 0) {
+          gsap.from(footerElements, {
+            scrollTrigger: {
+              trigger: "footer",
+            },
+            duration: 2,
+            opacity: 0,
+            yPercent: -40,
+            ease: "power2.out",
+            stagger: 0.1,
+          });
+        }
       });
     });
   });

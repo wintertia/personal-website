@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from "astro:content";
+import PostCard from "./PostCard.astro";
+type Props = {
+  posts: CollectionEntry<"posts">[];
+};
+
+const { posts } = Astro.props;
+---
+
+<div
+  class="bg-base-100 relative flex min-h-screen flex-col items-center bg-[url('/src/images/backgrounds/grid-haikei.png')] bg-repeat py-32"
+>
+  <div
+    class="from-base-200 absolute inset-0 z-0 h-full w-full bg-gradient-to-t via-transparent to-transparent"
+  >
+  </div>
+  <h1 class="project-title mb-4 text-4xl font-bold">My Blog Posts</h1>
+  <div class="z-10 w-full max-w-2xl px-8">
+    {posts.map((post) => <PostCard post={post} />)}
+  </div>
+</div>

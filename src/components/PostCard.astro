@@ -1,0 +1,30 @@
+---
+import { type CollectionEntry } from "astro:content";
+type Props = {
+  post: CollectionEntry<"posts">;
+};
+
+const { post } = Astro.props;
+---
+
+<a href={`/blog/${post.id}`} rel="noopener noreferrer" class="project-card">
+  <div
+    class="bg-base-300 border-base-100 hover:border-primary my-6 rounded-lg border p-4 transition duration-500 ease-in-out hover:scale-105"
+  >
+    <!-- TODO: fix the damn GSAP thingy -->
+    <div class="mb-1 text-xl font-semibold">{post.data.title}</div>
+    <p class="line-clamp-2 text-justify text-[var(--color-muted)]">
+      {post.data.description}
+    </p>
+    <p class="text-sm text-[var(--color-muted)]/70">
+      Published on {post.data.pubDate.toLocaleDateString("en-US")} • Tags:
+      {
+        post.data.tags.map((tag, index) => (
+          <span>
+            {`${tag}${index < post.data.tags.length - 1 ? ", " : ""}`}
+          </span>
+        ))
+      }
+    </p>
+  </div>
+</a>

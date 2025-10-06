@@ -1,9 +1,11 @@
 ---
+import type { CollectionEntry } from "astro:content";
 import { getCollection, render } from "astro:content";
+import Footer from "../../components/Footer.astro";
 import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("posts");
+  const posts: CollectionEntry<"posts">[] = await getCollection("posts");
   return posts.map((post) => ({
     params: { slug: post.id },
     props: { post },
@@ -15,8 +17,27 @@ const { Content } = await render(post);
 ---
 
 <Layout title={post.data.title}>
-  <article class="prose lg:prose-xl mx-auto px-8 py-32 text-pretty">
-    <h1>{post.data.title}</h1>
-    <Content />
-  </article>
+  <div
+    class="bg-base-200 relative min-h-screen bg-[url('/src/images/backgrounds/grid-haikei.png')] bg-repeat"
+  >
+    <article
+      class="prose prose-sm md:prose-base lg:prose-lg xl:prose-xl bg-base-200 mx-auto min-h-screen px-8 pt-32 text-pretty"
+    >
+      <h1 class="text-center">{post.data.title}</h1>
+      <p>{post.data.description}</p>
+      <p class="text-sm text-[var(--color-muted)]">
+        Published on {post.data.pubDate.toLocaleDateString("en-US")} • Tags:
+        {
+          post.data.tags.map((tag, index) => (
+            <span>
+              {`${tag}${index < post.data.tags.length - 1 ? ", " : ""}`}
+            </span>
+          ))
+        }
+        <hr />
+        <Content />
+        <Footer />
+      </p>
+    </article>
+  </div>
 </Layout>

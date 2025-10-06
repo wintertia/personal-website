@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "@fontsource/iosevka-aile";
+@import "@fontsource/iosevka";
 /* @import '@coreui/icons/css/all.min.css'; */
 
 @plugin "@tailwindcss/typography";
@@ -52,4 +53,5 @@
 
 @theme {
   --font-sans: "Iosevka Aile", "sans-serif";
+  --font-mono: "Iosevka", "monospace";
 }
