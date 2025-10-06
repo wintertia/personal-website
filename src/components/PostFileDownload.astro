@@ -1,0 +1,37 @@
+---
+import { promises as fs } from "node:fs";
+
+interface Props {
+  name: string;
+}
+
+const { name } = Astro.props;
+const filePath = `/assets/${name}`;
+const fullPath = new URL(`../../public${filePath}`, import.meta.url).pathname;
+
+let fileSize = "Unknown size";
+try {
+  const stats = await fs.stat(fullPath);
+  const sizeInBytes = stats.size;
+
+  if (sizeInBytes < 1024) {
+    fileSize = `${sizeInBytes} B`;
+  } else if (sizeInBytes < 1024 * 1024) {
+    fileSize = `${(sizeInBytes / 1024).toFixed(2)} KB`;
+  } else if (sizeInBytes < 1024 * 1024 * 1024) {
+    fileSize = `${(sizeInBytes / (1024 * 1024)).toFixed(2)} MB`;
+  } else {
+    fileSize = `${(sizeInBytes / (1024 * 1024 * 1024)).toFixed(2)} GB`;
+  }
+} catch (err) {
+  console.error(`Error fetching file size for ${name}:`, err);
+}
+---
+
+<a href={filePath} download class="not-prose">
+  <div
+    class="border-primary hover:bg-primary/10 text-primary w-full rounded-md border p-4 text-center transition duration-200"
+  >
+    Download {name} ({fileSize})
+  </div>
+</a>
