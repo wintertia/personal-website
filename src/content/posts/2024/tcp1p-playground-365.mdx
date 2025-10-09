@@ -104,7 +104,7 @@ log.info(io.clean())
 io.interactive()
 ```
 
-![alt](../../images/2024/tcp1p-playground-1.png)
+![Obtaining flag after running the script in the terminal](../../images/2024/tcp1p-playground-1.png)
 
 ## ret2win 2
 
@@ -116,9 +116,9 @@ io.interactive()
 
 My first introduction to using actual ROP to solve a challenge, learned stuff at ir0nstone and used the knowledge to perform "Ret2Win with Parameters". Since this was a 64-bit binary, I had to do register popping. But first, I had to find which variable was connected to which:
 
-![alt](../../images/2024/tcp1p-playground-2.png)
+![Pwndbg screenshot of disassembly to find registers](../../images/2024/tcp1p-playground-2.png)
 
-![alt](../../images/2024/tcp1p-playground-3.png)
+![Viewing the register conditions](../../images/2024/tcp1p-playground-3.png)
 
 Looking at the disassembly for the win function, I saw three comparisons and fortunately they were easily recognizable with their register names of RDI, RSI, and RDX.
 
@@ -225,7 +225,7 @@ log.info(io.clean())
 io.interactive()
 ```
 
-![alt](../../images/2024/tcp1p-playground-4.png)
+![Obtaining flag with pwntools script](../../images/2024/tcp1p-playground-4.png)
 
 ## ret2win 3
 
@@ -239,9 +239,9 @@ First time learning canaries, a simple canary challenge where the binary leaks t
 
 Start by finding the offset to EIP with cyclic patterns, by placing a breakpoint on the compare instruction with the canary:
 
-![alt](../../images/2024/tcp1p-playground-5.png)
+![Pwndbg set breakpoint on compare canary](../../images/2024/tcp1p-playground-5.png)
 
-![alt](../../images/2024/tcp1p-playground-6.png)
+![Counting offset with cyclic](../../images/2024/tcp1p-playground-6.png)
 
 After replacing the correct offset with canary, find the offset to EIP which was 8 bytes and insert a stack alignment gadget followed by the win function:
 
@@ -329,7 +329,7 @@ log.info(io.clean())
 io.interactive()
 ```
 
-![alt](../../images/2024/tcp1p-playground-7.png)
+![Running pwntools script to obtain flag](../../images/2024/tcp1p-playground-7.png)
 
 ## ret2win 4
 
@@ -341,7 +341,7 @@ io.interactive()
 
 First time learning PIE, and this challenge is a simple introduction to PIE. The goal is to buffer overflow but with PIE in mind. First step is to use the given leak to get PIE, since it's a global variable it's very easy to find the offset. _(see 0x404c \<what_is_this_for>)_
 
-![alt](../../images/2024/tcp1p-playground-8.png)
+![Finding weird global variable in disassembly](../../images/2024/tcp1p-playground-8.png)
 
 Just subtract the leaked address with -0x404c and we get the base address for ROP:
 
@@ -424,4 +424,4 @@ io.sendline(payload)
 io.interactive()
 ```
 
-![alt](../../images/2024/tcp1p-playground-9.png)
+![Running pwntools script to obtain flag](../../images/2024/tcp1p-playground-9.png)
