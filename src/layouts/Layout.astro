@@ -5,9 +5,10 @@ import "../styles/global.css";
 
 interface Props {
   title: string;
+  description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <html lang="en">
@@ -21,6 +22,17 @@ const { title } = Astro.props;
     <meta name="apple-mobile-web-app-title" content="wintertia" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width" />
+    <meta
+      name="google-site-verification"
+      content="1T00ZInpDNwc0kYdBxDcY11-HeciLPEU4SIBOg0i_0U"
+    />
+    <meta name="application-name" content={title} />
+    <meta name="author" content="wintertia" />
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="wintertia, portfolio, developer, cybersecurity, binary exploitation, web development, game development"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
@@ -52,7 +64,7 @@ const { title } = Astro.props;
       ctx && ctx.revert();
       ctx = gsap.context(() => {
         ScrollSmoother.create({
-          smooth: 1.5,
+          smooth: 1.0,
           effects: true,
         });
 
