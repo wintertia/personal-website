@@ -13,10 +13,10 @@ const { post } = Astro.props;
   >
     <!-- TODO: fix the damn GSAP thingy -->
     <div class="mb-1 text-xl font-semibold">{post.data.title}</div>
-    <p class="line-clamp-2 text-justify text-[var(--color-muted)]">
+    <p class="text-base-content/70 line-clamp-2 text-justify">
       {post.data.description}
     </p>
-    <p class="text-sm text-[var(--color-muted)]/70">
+    <p class="text-base-content/70 text-sm">
       Published on {post.data.pubDate.toLocaleDateString("en-US")} • Tags:
       {
         post.data.tags.map((tag, index) => (

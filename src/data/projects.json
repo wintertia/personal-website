@@ -29,16 +29,6 @@
       "stack": ["Roblox Studio", "Lua"],
       "link": "https://github.com/rose-pine/roblox-studio",
       "image": "rose-pine-roblox-studio.png"
-    },
-    {
-      "title": "Insecure Library",
-      "points": [
-        "Vibe coded insecure Express app (don't vibe code please)",
-        "Includes different examples of SQL Injection"
-      ],
-      "stack": ["Express", "SQLite"],
-      "link": "https://github.com/wintertia/insecure-library",
-      "image": "insecure-library.png"
     }
   ]
 }

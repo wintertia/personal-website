@@ -1,62 +1,36 @@
 ---
 import projects from "../data/projects.json";
 import ProjectCard from "./ProjectCard.astro";
-
-interface Props {
-  display: number;
-}
-
-const { display } = Astro.props;
 ---
 
 <div
-  class="bg-base-100 relative min-h-[calc(100vh-4rem)] bg-[url('/src/images/backgrounds/grid-haikei.png')] bg-repeat py-32"
+  class="bg-base-100 relative min-h-[calc(100vh-4rem)] bg-[url('/src/images/backgrounds/grid-haikei.png')] bg-repeat py-20"
 >
   <div
-    class="from-base-200 absolute inset-0 z-0 h-full w-full bg-gradient-to-b via-transparent to-transparent"
+    class="from-base-100 absolute inset-0 z-0 h-full w-full bg-gradient-to-b via-transparent to-transparent"
   >
   </div>
-  <div
-    class="from-base-200 absolute inset-0 z-0 h-full w-full bg-gradient-to-t via-transparent to-transparent"
-  >
-  </div>
-
   <div
     class="text-shadow-base-100/50 relative z-10 mx-auto justify-self-center text-center text-4xl font-bold text-shadow-lg"
   >
     <p class="project-title">My Stuff</p>
-    <slot />
+    <div class="project-subtitle text-base-content/30 my-2 text-lg italic">
+      (more coming soon)
+    </div>
   </div>
   <div
     class="align-stretch relative z-10 m-8 flex min-h-100 flex-row flex-wrap justify-center gap-8"
   >
     {
-      projects.data
-        .slice(0, display)
-        .map((project) => (
-          <ProjectCard
-            title={project.title}
-            points={project.points}
-            stack={project.stack}
-            link={project.link}
-            image={project.image}
-          />
-        ))
+      projects.data.map((project) => (
+        <ProjectCard
+          title={project.title}
+          points={project.points}
+          stack={project.stack}
+          link={project.link}
+          image={project.image}
+        />
+      ))
     }
   </div>
-  {
-    display === 2 ? (
-      <div class="project-card relative z-10 flex justify-center">
-        <a
-          role="button"
-          class="btn btn-neutral border-base-300 hover:border-secondary rounded-xl border-2 text-xl transition duration-500 ease-in-out hover:scale-105"
-          href="/projects/"
-        >
-          See more stuff!
-        </a>
-      </div>
-    ) : (
-      ""
-    )
-  }
 </div>

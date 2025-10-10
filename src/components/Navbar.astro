@@ -6,25 +6,44 @@ import { Icon } from "astro-icon/components";
   class="navbar from-base-100 fixed top-0 z-50 bg-gradient-to-b to-transparent shadow-sm"
 >
   <div class="navbar-start mx-1">
-    <div class="dropdown">
-      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+    <a
+      href="/"
+      class="flex items-center px-2 text-2xl font-bold text-shadow-black/50 text-shadow-lg"
+    >
+      <Icon name="social/wintertia" size="2rem" />
+      <span class="ml-1">Wintertia</span>
+    </a>
+  </div>
+  <div class="navbar-end flex">
+    <ul class="menu menu-horizontal hidden md:flex">
+      <li><a class="text-shadow-black/50 text-shadow-lg" href="/">About</a></li>
+      <li>
+        <a class="text-shadow-black/50 text-shadow-lg" href="/projects/"
+          >Projects</a
+        >
+      </li>
+      <li>
+        <a class="text-shadow-black/50 text-shadow-lg" href="/blog/">Blog</a>
+      </li>
+    </ul>
+    <div class="dropdown dropdown-bottom dropdown-end flex md:hidden">
+      <div tabindex="0" role="button" class="btn btn-square btn-ghost">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5"
           fill="none"
           viewBox="0 0 24 24"
-          stroke="currentColor"
+          class="inline-block h-5 w-5 stroke-current"
         >
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            d="M4 6h16M4 12h8m-8 6h16"></path>
+            d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </div>
       <ul
         tabindex="0"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+        class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
       >
         <li>
           <a class="text-shadow-black/50 text-shadow-lg" href="/">About</a>
@@ -39,25 +58,6 @@ import { Icon } from "astro-icon/components";
         </li>
       </ul>
     </div>
-    <Icon name="social/wintertia" size="2rem" class="hidden lg:block" />
-    <a
-      href="/"
-      class="mx-4 text-xl font-bold text-shadow-black/50 text-shadow-lg"
-      >Wintertia</a
-    >
-  </div>
-  <div class="navbar-end hidden lg:flex">
-    <ul class="menu menu-horizontal">
-      <li><a class="text-shadow-black/50 text-shadow-lg" href="/">About</a></li>
-      <li>
-        <a class="text-shadow-black/50 text-shadow-lg" href="/projects/"
-          >Projects</a
-        >
-      </li>
-      <li>
-        <a class="text-shadow-black/50 text-shadow-lg" href="/blog/">Blog</a>
-      </li>
-    </ul>
   </div>
 </header>
 

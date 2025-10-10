@@ -136,6 +136,7 @@ const { title, description } = Astro.props;
 
         // Stacks Animation
         const stackTitleEl = document.querySelector(".stack-title");
+        const stackSubtitleEl = document.querySelector(".stack-subtitle");
         const stackCards = document.querySelectorAll(".stack-card");
         if (stackTitleEl && stackCards.length > 0) {
           const stackTitle = new SplitText(stackTitleEl, { type: "chars" });
@@ -150,6 +151,24 @@ const { title, description } = Astro.props;
             ease: "power2.out",
             stagger: 0.05,
           });
+        }
+        if (stackSubtitleEl && stackCards.length > 0) {
+          const stackSubtitle = new SplitText(stackSubtitleEl, {
+            type: "words",
+          });
+          gsap.from(stackSubtitle.words, {
+            scrollTrigger: {
+              trigger: stackCards[0],
+              start: "top 70%",
+            },
+            duration: 1,
+            opacity: 0,
+            yPercent: -100,
+            ease: "power2.out",
+            stagger: 0.05,
+          });
+        }
+        if (stackCards.length > 0) {
           gsap.from(stackCards, {
             scrollTrigger: {
               trigger: stackCards[0],
