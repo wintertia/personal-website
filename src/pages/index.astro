@@ -1,19 +1,17 @@
 ---
-import About from "../components/About.astro";
+import AboutCards from "../components/AboutCards.astro";
+import AboutIntro from "../components/AboutIntro.astro";
 import Footer from "../components/Footer.astro";
 import Hero from "../components/Hero.astro";
-import Projects from "../components/Projects.astro";
-import Stack from "../components/Stack.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
-  title="Amoes Noland | Wintertia"
+  title="Wintertia"
   description="Cybersecurity & Binary Exploitation Enthusiast, Entry Level Web/Game Developer, IT Student."
 >
   <Hero />
-  <About />
-  <Stack />
-  <Projects display={2} />
+  <AboutIntro />
+  <AboutCards />
   <Footer />
 </Layout>

@@ -1,0 +1,31 @@
+---
+import AboutCard from "./AboutCard.astro";
+---
+
+<div class="bg-base-100">
+  <div class="mx-auto w-full pb-16 lg:w-3/4 xl:w-5/8">
+    <div
+      class="about-title-2 text-center text-2xl font-bold text-shadow-lg md:text-4xl"
+    >
+      More About Me
+    </div>
+
+    <div class="mt-8 flex min-h-100 flex-col gap-8 max-lg:mx-8 md:flex-row">
+      <AboutCard icon="flag">
+        I like learning cyber security knowledge through playing Capture The
+        Flag competitions. Usually I play Binary Exploitation (Pwn) challenges,
+        but I also enjoy exploring other categories.
+      </AboutCard>
+      <AboutCard icon="vim">
+        I develop side projects in my free time. I use VSCode with the Vim
+        extension as my primary text editor because Vim keybindings are the
+        greatest thing ever invented for programming.
+      </AboutCard>
+      <AboutCard icon="game">
+        When I need a break, I like to play games. My favorite games are story
+        rich JRPGs like Final Fantasy XIV and Atlus Games, or anything
+        Pokemon-related.
+      </AboutCard>
+    </div>
+  </div>
+</div>

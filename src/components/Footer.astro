@@ -4,14 +4,24 @@ import Socials from "./Socials.astro";
 ---
 
 <footer
-  class="not-prose footer footer-horizontal footer-center bg-neutral gap-4 p-6"
+  class="not-prose footer footer-horizontal footer-center from-base-200 to-base-200 hover:to-base-300 border-base-300 gap-4 border-t-2 bg-gradient-to-b p-6 transition-colors duration-300 ease-in-out"
 >
   <aside>
     <Icon name="social/wintertia" class="footer-icon mb-2 h-12 w-12" />
     <p class="footer-text">
-      <span class="font-bold">Wintertia</span>
+      <span class="text-lg font-bold">Wintertia</span>
       <br />
-      Copyright © {new Date().getFullYear()} - All rights reserved
+      <span class="text-balance">
+        <Icon name="social/kofi" class="inline" />
+        Support me by
+        <a
+          href="https://ko-fi.com/wintertia"
+          target="_blank"
+          rel="noopener"
+          class="link link-primary">buying me a coffee!</a
+        >
+        <Icon name="social/kofi" class="inline" />
+      </span>
     </p>
   </aside>
   <nav class="footer-nav">

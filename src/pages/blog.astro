@@ -11,10 +11,7 @@ const posts = await getCollection("posts").then(
 );
 ---
 
-<Layout
-  title="Blog | Wintertia"
-  description="Read the latest CTF writeups, dev articles, and life updates on Amoes Noland's blog."
->
+<Layout title="Blog | Wintertia" description="Wintertia's personal blog.">
   <Posts posts={posts} />
   <Footer />
 </Layout>

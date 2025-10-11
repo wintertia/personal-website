@@ -53,6 +53,11 @@ const { title, description } = Astro.props;
   import { SplitText } from "gsap/SplitText";
   await document.fonts.ready;
 
+  /*
+  i know this is like really unoptimized but it works yeah
+  someone please help me :(
+  */
+
   gsap.registerPlugin(SplitText, ScrollTrigger, ScrollSmoother);
   let ctx: gsap.Context | null = null;
   document.addEventListener("astro:page-load", () => {
@@ -107,7 +112,7 @@ const { title, description } = Astro.props;
         // About Animation
         const aboutTitleEl = document.querySelector(".about-title");
         const aboutBoxEl = document.querySelector(".about-box");
-        if (aboutTitleEl && aboutBoxEl) {
+        if (aboutTitleEl || aboutBoxEl) {
           const aboutTitle = new SplitText(aboutTitleEl, { type: "chars" });
           gsap.from(aboutTitle.chars, {
             scrollTrigger: {
@@ -127,7 +132,37 @@ const { title, description } = Astro.props;
             },
             duration: 1,
             opacity: 0,
-            y: -20,
+            yPercent: -20,
+            ease: "power2.out",
+            delay: 0.25,
+            stagger: 0.1,
+          });
+        }
+
+        // About Animation 2
+        const aboutTitleEl2 = document.querySelector(".about-title-2");
+        const aboutCard2 = document.querySelector(".about-card-2");
+        if (aboutTitleEl2 && aboutCard2) {
+          const aboutTitle = new SplitText(aboutTitleEl2, { type: "chars" });
+          gsap.from(aboutTitle.chars, {
+            scrollTrigger: {
+              trigger: aboutCard2,
+              start: "top 70%",
+            },
+            duration: 1,
+            opacity: 0,
+            yPercent: -100,
+            ease: "power2.out",
+            stagger: 0.05,
+          });
+          gsap.from([".about-card-2"], {
+            scrollTrigger: {
+              trigger: aboutCard2,
+              start: "top 70%",
+            },
+            duration: 1,
+            opacity: 0,
+            yPercent: -20,
             ease: "power2.out",
             delay: 0.25,
             stagger: 0.1,
@@ -136,6 +171,7 @@ const { title, description } = Astro.props;
 
         // Stacks Animation
         const stackTitleEl = document.querySelector(".stack-title");
+        const stackSubtitleEl = document.querySelector(".stack-subtitle");
         const stackCards = document.querySelectorAll(".stack-card");
         if (stackTitleEl && stackCards.length > 0) {
           const stackTitle = new SplitText(stackTitleEl, { type: "chars" });
@@ -150,6 +186,24 @@ const { title, description } = Astro.props;
             ease: "power2.out",
             stagger: 0.05,
           });
+        }
+        if (stackSubtitleEl && stackCards.length > 0) {
+          const stackSubtitle = new SplitText(stackSubtitleEl, {
+            type: "words",
+          });
+          gsap.from(stackSubtitle.words, {
+            scrollTrigger: {
+              trigger: stackCards[0],
+              start: "top 70%",
+            },
+            duration: 1,
+            opacity: 0,
+            yPercent: -100,
+            ease: "power2.out",
+            stagger: 0.05,
+          });
+        }
+        if (stackCards.length > 0) {
           gsap.from(stackCards, {
             scrollTrigger: {
               trigger: stackCards[0],

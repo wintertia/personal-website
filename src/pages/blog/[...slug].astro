@@ -21,26 +21,28 @@ const { Content } = await render(post);
   description={post.data.description}
 >
   <div
-    class="bg-base-200 relative min-h-screen bg-[url('/src/images/backgrounds/grid-haikei.png')] bg-repeat"
+    class="bg-base-200 relative bg-[url('/src/images/backgrounds/grid-haikei.png')] bg-repeat"
   >
     <article
-      class="prose prose-sm md:prose-base lg:prose-lg bg-base-200 mx-auto min-h-screen px-8 pt-32 text-pretty"
+      class="prose prose-sm md:prose-base lg:prose-lg bg-base-200 mx-auto min-h-screen pt-20 text-pretty"
     >
-      <h1 class="text-center">{post.data.title}</h1>
-      <p>{post.data.description}</p>
-      <p class="text-sm text-[var(--color-muted)]">
-        Published on {post.data.pubDate.toLocaleDateString("en-US")} • Tags:
-        {
-          post.data.tags.map((tag, index) => (
-            <span>
-              {`${tag}${index < post.data.tags.length - 1 ? ", " : ""}`}
-            </span>
-          ))
-        }
-        <hr />
-        <Content />
-        <Footer />
-      </p>
+      <div class="p-8">
+        <h1 class="text-center">{post.data.title}</h1>
+        <p>{post.data.description}</p>
+        <p class="text-base-content/70 text-sm">
+          Published on {post.data.pubDate.toLocaleDateString("en-US")} • Tags:
+          {
+            post.data.tags.map((tag, index) => (
+              <span>
+                {`${tag}${index < post.data.tags.length - 1 ? ", " : ""}`}
+              </span>
+            ))
+          }
+          <hr />
+          <Content />
+        </p>
+      </div>
+      <Footer />
     </article>
   </div>
 </Layout>

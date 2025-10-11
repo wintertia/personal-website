@@ -1,54 +1,42 @@
 @import "tailwindcss";
 @import "@fontsource/iosevka-aile";
 @import "@fontsource/iosevka";
-/* @import '@coreui/icons/css/all.min.css'; */
 
 @plugin "@tailwindcss/typography";
 @plugin "daisyui";
 @plugin "daisyui/theme" {
-  name: "rose-pine-moon";
-  default: false;
+  name: "rosepinemoon";
+  default: true;
   prefersdark: true;
-  color-scheme: dark;
-
+  color-scheme: "dark";
   --color-base-100: #232136;
   --color-base-200: #2a273f;
   --color-base-300: #393552;
   --color-base-content: #e0def4;
   --color-primary: #c4a7e7;
-  --color-primary-content: #232136;
+  --color-primary-content: #393552;
   --color-secondary: #ea9a97;
-  --color-secondary-content: #232136;
-  --color-accent: #c4a7e7;
-  --color-accent-content: #232136;
-  --color-neutral: #2a273f;
+  --color-secondary-content: #393552;
+  --color-accent: #9ccfd8;
+  --color-accent-content: #393552;
+  --color-neutral: #393552;
   --color-neutral-content: #e0def4;
-  --color-info: #3e8fb0;
-  --color-info-content: #232136;
-  --color-success: #9ccfd8;
-  --color-success-content: #232136;
+  --color-info: #9ccfd8;
+  --color-info-content: #393552;
+  --color-success: #3e8fb0;
+  --color-success-content: #e0def4;
   --color-warning: #f6c177;
-  --color-warning-content: #232136;
+  --color-warning-content: #393552;
   --color-error: #eb6f92;
-  --color-error-content: #232136;
-  --color-muted: #6e6a86;
-  --color-muted-content: #6e6a86;
-
-  /* border radius */
+  --color-error-content: #393552;
   --radius-selector: 1rem;
-  --radius-field: 0.25rem;
+  --radius-field: 1rem;
   --radius-box: 0.5rem;
-
-  /* base sizes */
   --size-selector: 0.25rem;
   --size-field: 0.25rem;
-
-  /* border size */
-  --border: 1px;
-
-  /* effects */
+  --border: 2px;
   --depth: 1;
-  --noise: 0;
+  --noise: 1;
 }
 
 @theme {
