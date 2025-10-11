@@ -21,7 +21,7 @@ import { Image } from "astro:assets";
   </div>
   <div class="flex min-h-120 items-center justify-center">
     <div
-      class="about-box mockup-window bg-base-200 border-neutral m-8 w-full border-2 lg:w-3/4 xl:w-5/8"
+      class="about-box mockup-window border-neutral from-base-200 to-base-200 hover:to-base-300 m-8 w-full border-2 bg-gradient-to-b transition-colors duration-300 ease-in-out lg:w-3/4 xl:w-5/8"
     >
       <div
         class="border-neutral grid h-auto grid-rows-1 place-items-stretch gap-8 border-t p-8 max-[468px]:grid-rows-[auto_1fr] md:grid-cols-2 md:px-16"
@@ -37,7 +37,7 @@ import { Image } from "astro:assets";
             class="h-full w-full object-center md:object-cover"
           />
         </div>
-        <article class="self-center text-center text-sm md:text-lg">
+        <article class="self-center text-sm text-pretty md:text-lg">
           <p class="about-text">
             I’m a
             {
@@ -51,9 +51,9 @@ import { Image } from "astro:assets";
               class="text-primary">ITS</a
             > and part of <a href="https://hcs-team.com/" class="text-primary"
               >Heroes Cyber Security</a
-            >. I play CTFs and develop side projects in my free time. I'm
-            passionate about learning more advanced cybersecurity and software
-            development.
+            >. Usually I play CTFs and develop side projects in my free time.
+            I'm passionate about learning more advanced cybersecurity and
+            software development.
           </p>
         </article>
       </div>
