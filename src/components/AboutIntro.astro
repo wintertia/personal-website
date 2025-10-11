@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import Self from "../images/backgrounds/self.jpeg";
 ---
 
 <div
@@ -30,9 +31,9 @@ import { Image } from "astro:assets";
           class="mask m-auto aspect-square max-h-40 max-w-40 overflow-hidden mask-circle md:max-h-76 md:max-w-76"
         >
           <Image
-            src="https://placehold.co/600x600/"
-            width="600"
-            height="600"
+            src={Self}
+            width="830"
+            height="830"
             alt="Face"
             class="h-full w-full object-center md:object-cover"
           />
