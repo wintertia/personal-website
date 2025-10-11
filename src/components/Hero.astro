@@ -4,7 +4,7 @@ import CyberpunkBackground from "../images/backgrounds/cyberpunkcity.jpg";
 import Socials from "./Socials.astro";
 ---
 
-<div class="hero relative min-h-screen">
+<div class="hero relative h-screen">
   <Image
     src={CyberpunkBackground}
     alt="Cyberpunk city background"
@@ -16,11 +16,9 @@ import Socials from "./Socials.astro";
     quality={80}
   />
 
-  <div class="hero-overlay bg-neutral/60"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content text-center" data-speed="0.75">
-    <div
-      class="hero-box text-shadow-primary/50 inline-block max-w-lg text-shadow-lg"
-    >
+    <div class="hero-box text-shadow-primary/50 max-w-lg text-shadow-lg">
       <h1 class="hero-title mb-5 text-2xl font-black sm:text-3xl md:text-5xl">
         I'm Amoes Noland.
       </h1>
