@@ -9,7 +9,7 @@ const { post } = Astro.props;
 
 <a href={`/blog/${post.id}`} rel="noopener noreferrer" class="project-card">
   <div
-    class="bg-base-300 border-base-100 hover:border-primary my-6 rounded-lg border p-4 transition duration-500 ease-in-out hover:scale-105"
+    class="from-base-200 to-base-200 hover:to-base-300 border-base-300 hover:border-primary my-6 rounded-lg border bg-gradient-to-b p-4 transition duration-500 ease-in-out hover:scale-105"
   >
     <!-- TODO: fix the damn GSAP thingy -->
     <div class="mb-1 text-xl font-semibold">{post.data.title}</div>

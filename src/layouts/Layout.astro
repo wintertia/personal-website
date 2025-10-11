@@ -112,7 +112,7 @@ const { title, description } = Astro.props;
         // About Animation
         const aboutTitleEl = document.querySelector(".about-title");
         const aboutBoxEl = document.querySelector(".about-box");
-        if (aboutTitleEl && aboutBoxEl) {
+        if (aboutTitleEl || aboutBoxEl) {
           const aboutTitle = new SplitText(aboutTitleEl, { type: "chars" });
           gsap.from(aboutTitle.chars, {
             scrollTrigger: {
@@ -132,7 +132,7 @@ const { title, description } = Astro.props;
             },
             duration: 1,
             opacity: 0,
-            y: -20,
+            yPercent: -20,
             ease: "power2.out",
             delay: 0.25,
             stagger: 0.1,
