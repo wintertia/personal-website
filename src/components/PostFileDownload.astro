@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import { promises as fs } from "node:fs";
 
 interface Props {
@@ -15,13 +16,13 @@ try {
   const sizeInBytes = stats.size;
 
   if (sizeInBytes < 1024) {
-    fileSize = `${sizeInBytes} B`;
+    fileSize = `${sizeInBytes}B`;
   } else if (sizeInBytes < 1024 * 1024) {
-    fileSize = `${(sizeInBytes / 1024).toFixed(2)} KB`;
+    fileSize = `${(sizeInBytes / 1024).toFixed(2)}KB`;
   } else if (sizeInBytes < 1024 * 1024 * 1024) {
-    fileSize = `${(sizeInBytes / (1024 * 1024)).toFixed(2)} MB`;
+    fileSize = `${(sizeInBytes / (1024 * 1024)).toFixed(2)}MB`;
   } else {
-    fileSize = `${(sizeInBytes / (1024 * 1024 * 1024)).toFixed(2)} GB`;
+    fileSize = `${(sizeInBytes / (1024 * 1024 * 1024)).toFixed(2)}GB`;
   }
 } catch (err) {
   console.error(`Error fetching file size for ${name}:`, err);
@@ -30,8 +31,12 @@ try {
 
 <a href={filePath} download class="not-prose">
   <div
-    class="border-primary hover:bg-primary/10 text-primary w-full rounded-md border p-4 text-center transition duration-200"
+    class="bg-base-300 flex w-full gap-4 rounded-md p-4 text-center transition duration-200"
   >
-    Download {name} ({fileSize})
+    <div class="my-auto text-center text-xs">
+      <Icon name="file" size="2rem" class="m-1 mx-auto" />
+      <p class="text-base-content/50">{fileSize}</p>
+    </div>
+    <p class="my-auto">{name}</p>
   </div>
 </a>
