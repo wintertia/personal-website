@@ -8,6 +8,13 @@ interface Props {
   description: string;
 }
 
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(
+  "/open-graph" +
+    (Astro.url.pathname === "/" ? "/index" : Astro.url.pathname) +
+    ".png",
+  Astro.url.origin,
+);
 const { title, description } = Astro.props;
 ---
 
@@ -26,15 +33,28 @@ const { title, description } = Astro.props;
       name="google-site-verification"
       content="1T00ZInpDNwc0kYdBxDcY11-HeciLPEU4SIBOg0i_0U"
     />
-    <meta name="application-name" content={title} />
     <meta name="author" content="wintertia" />
-    <meta name="description" content={description} />
-    <meta
-      name="keywords"
-      content="wintertia, portfolio, developer, cybersecurity, binary exploitation, web development, game development"
-    />
     <meta name="generator" content={Astro.generator} />
+    <meta name="application-name" content={title} />
+
+    <!-- HTML Meta Tags -->
     <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="wintertia.pages.dev" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
   </head>
   <body>
     <div id="smooth-wrapper">

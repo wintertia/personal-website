@@ -4,6 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+import compressor from "astro-compressor";
 
 // https://astro.build/config
 export default defineConfig({
@@ -26,5 +27,5 @@ export default defineConfig({
     },
   },
 
-  integrations: [icon(), mdx(), sitemap()],
+  integrations: [icon(), mdx(), sitemap(), compressor()],
 });
