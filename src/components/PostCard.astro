@@ -8,26 +8,26 @@ const { post } = Astro.props;
 ---
 
 <a href={`/blog/${post.id}`} rel="noopener noreferrer" class="project-card">
-  <div
-    class="from-base-200 to-base-200 hover:to-base-300 border-base-300 hover:border-primary h-full rounded-lg border bg-gradient-to-b p-4 transition duration-500 ease-in-out hover:scale-105"
-  >
-    <div class="mb-1 truncate text-xl font-semibold">
-      <abbr title={post.data.title} class="no-underline">
+  <abbr title={post.data.title} class="no-underline">
+    <div
+      class="from-base-200 to-base-200 hover:to-base-300 border-base-300 hover:border-primary h-full rounded-lg border bg-gradient-to-b p-4 transition duration-500 ease-in-out hover:scale-105"
+    >
+      <div class="mb-1 truncate text-xl font-semibold">
         {post.data.title}
-      </abbr>
+      </div>
+      <p class="text-base-content/70 line-clamp-2 text-justify">
+        {post.data.description}
+      </p>
+      <p class="text-base-content/70 text-sm">
+        Published on {post.data.pubDate.toLocaleDateString("en-US")} • Tags:
+        {
+          post.data.tags.map((tag, index) => (
+            <span>
+              {`${tag}${index < post.data.tags.length - 1 ? ", " : ""}`}
+            </span>
+          ))
+        }
+      </p>
     </div>
-    <p class="text-base-content/70 line-clamp-2 text-justify">
-      {post.data.description}
-    </p>
-    <p class="text-base-content/70 text-sm">
-      Published on {post.data.pubDate.toLocaleDateString("en-US")} • Tags:
-      {
-        post.data.tags.map((tag, index) => (
-          <span>
-            {`${tag}${index < post.data.tags.length - 1 ? ", " : ""}`}
-          </span>
-        ))
-      }
-    </p>
-  </div>
+  </abbr>
 </a>

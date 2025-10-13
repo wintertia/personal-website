@@ -10,6 +10,8 @@ const { link } = Astro.props;
   <div
     class="btn btn-ghost btn-circle items-center transition duration-300 ease-in-out hover:scale-125"
   >
-    <slot />
+    <abbr title={link.replace(/https?:\/\//, "")}>
+      <slot />
+    </abbr>
   </div>
 </a>
