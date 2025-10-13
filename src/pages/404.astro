@@ -1,6 +1,5 @@
 ---
-import { Image } from "astro:assets";
-import CyberpunkBackground from "../images/backgrounds/cyberpunkcity.jpg";
+import Footer from "../components/Footer.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -8,29 +7,8 @@ import Layout from "../layouts/Layout.astro";
   title="404 Not Found | Wintertia"
   description="The page you are looking for does not exist."
 >
-  <div class="hero relative min-h-screen">
-    <Image
-      src={CyberpunkBackground}
-      alt="Cyberpunk city background"
-      class="inset-0 -z-50 h-full w-full object-cover blur-xs"
-      width={1920}
-      height={1080}
-      format="webp"
-      quality={80}
-    />
-    <div
-      class="from-base-200 absolute inset-0 z-0 h-full w-full bg-gradient-to-t to-transparent"
-    >
-    </div>
-    <div class="hero-overlay bg-neutral/60"></div>
-    <div class="hero-content text-neutral-content text-center">
-      <div class="hero-box">
-        <h1
-          class="hero-title text-primary z-10 mb-5 text-3xl font-black md:text-5xl"
-        >
-          404 Not Found
-        </h1>
-      </div>
-    </div>
+  <div class="bg-base-100 flex h-screen w-screen items-center justify-center">
+    404 Not Found
   </div>
+  <Footer />
 </Layout>
