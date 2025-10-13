@@ -3,16 +3,28 @@ import type { CollectionEntry } from "astro:content";
 import PostCard from "./PostCard.astro";
 type Props = {
   posts: CollectionEntry<"posts">[];
+  short?: boolean;
 };
 
-const { posts } = Astro.props;
+const { posts, short } = Astro.props;
+let postsToShow, titleToShow, classes;
+if (short) {
+  postsToShow = posts.slice(0, 4);
+  titleToShow = "Recent Blog Posts";
+  classes = "";
+} else {
+  postsToShow = posts;
+  titleToShow = "My Blog";
+  classes =
+    "bg-[url('/src/images/backgrounds/grid-haikei.svg')] bg-repeat min-h-screen";
+}
 ---
 
 <div
-  class="bg-base-100 relative flex min-h-screen flex-col items-center bg-[url('/src/images/backgrounds/grid-haikei.svg')] bg-repeat py-20"
+  class={`bg-base-100 relative flex flex-col items-center pt-20 pb-32 ${classes}`}
 >
-  <h1 class="project-title mb-4 text-4xl font-bold">My Blog</h1>
-  <div class="z-10 w-full max-w-2xl px-8">
-    {posts.map((post) => <PostCard post={post} />)}
+  <h1 class="project-title mb-8 text-4xl font-bold">{titleToShow}</h1>
+  <div class="z-10 grid grid-cols-1 gap-x-8 gap-y-4 px-8 md:grid-cols-2">
+    {postsToShow.map((post) => <PostCard post={post} />)}
   </div>
 </div>

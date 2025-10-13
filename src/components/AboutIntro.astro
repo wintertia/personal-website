@@ -3,18 +3,7 @@ import { Image } from "astro:assets";
 import Self from "../images/backgrounds/self.jpeg";
 ---
 
-<div
-  class="relative flex min-h-screen flex-col items-center justify-center bg-[url('/src/images/backgrounds/grid-haikei.svg')] bg-repeat pt-16"
->
-  <div
-    class="from-base-100 absolute inset-0 z-0 h-full w-full bg-gradient-to-b via-transparent to-transparent"
-  >
-  </div>
-  <div
-    class="from-base-100 absolute inset-0 z-0 h-full w-full bg-gradient-to-t via-transparent to-transparent"
-  >
-  </div>
-
+<div class="z-10 flex flex-col items-center justify-center">
   <div
     class="about-title mx-auto text-center text-4xl font-bold text-shadow-lg md:text-6xl"
   >
@@ -56,7 +45,7 @@ import Self from "../images/backgrounds/self.jpeg";
               >Heroes Cyber Security</a
             >. Usually I play CTFs and develop side projects in my free time.
             I'm passionate about learning more advanced cybersecurity and
-            software development.
+            software development especially with low-level languages.
           </p>
         </article>
       </div>

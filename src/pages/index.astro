@@ -1,9 +1,16 @@
 ---
-import AboutCards from "../components/AboutCards.astro";
-import AboutIntro from "../components/AboutIntro.astro";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import About from "../components/About.astro";
 import Footer from "../components/Footer.astro";
 import Hero from "../components/Hero.astro";
+import Posts from "../components/Posts.astro";
 import Layout from "../layouts/Layout.astro";
+
+const posts = await getCollection("posts").then(
+  (posts: CollectionEntry<"posts">[]) =>
+    posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()),
+);
 ---
 
 <Layout
@@ -11,7 +18,7 @@ import Layout from "../layouts/Layout.astro";
   description="Cybersecurity & Binary Exploitation Enthusiast, Entry Level Web/Game Developer, IT Student."
 >
   <Hero />
-  <AboutIntro />
-  <AboutCards />
+  <Posts posts={posts} short={true} />
+  <About />
   <Footer />
 </Layout>
