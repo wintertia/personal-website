@@ -50,5 +50,6 @@ export const { getStaticPaths, GET } = OGImageRoute({
         color: [224, 222, 244],
       },
     },
+    padding: 100,
   }),
 });
