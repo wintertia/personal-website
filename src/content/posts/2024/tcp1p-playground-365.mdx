@@ -18,7 +18,7 @@ import PostFileDownload from "../../../components/PostFileDownload.astro";
 >
 > _Author: zran_
 
-<PostFileDownload name="tcp1p-playground-ret2win1.zip" />
+<PostFileDownload name="2025-tcp1p-playground-ret2win1.zip" />
 
 Simple buffer overflow challenge, but the only roadblock for me was _stack alignment_ on the remote so i learned how to use ROPgadget to find a simple ret gadget to solve this.
 
@@ -115,7 +115,7 @@ io.interactive()
 >
 > _Author: zran_
 
-<PostFileDownload name="tcp1p-playground-ret2win2.zip" />
+<PostFileDownload name="2025-tcp1p-playground-ret2win2.zip" />
 
 My first introduction to using actual ROP to solve a challenge, learned stuff at ir0nstone and used the knowledge to perform "Ret2Win with Parameters". Since this was a 64-bit binary, I had to do register popping. But first, I had to find which variable was connected to which:
 
@@ -236,7 +236,7 @@ io.interactive()
 >
 > Author: **zran**
 
-<PostFileDownload name="tcp1p-playground-ret2win3.zip" />
+<PostFileDownload name="2025-tcp1p-playground-ret2win3.zip" />
 
 First time learning canaries, a simple canary challenge where the binary leaks the canary for you and leaves you to work to return to the win function. Simple buffer overflow by finding the offset to the canary and the EIP.
 
@@ -340,7 +340,7 @@ io.interactive()
 >
 > Author: **zran**
 
-<PostFileDownload name="tcp1p-playground-ret2win4.zip" />
+<PostFileDownload name="2025-tcp1p-playground-ret2win4.zip" />
 
 First time learning PIE, and this challenge is a simple introduction to PIE. The goal is to buffer overflow but with PIE in mind. First step is to use the given leak to get PIE, since it's a global variable it's very easy to find the offset. _(see 0x404c \<what_is_this_for>)_
 
