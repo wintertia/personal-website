@@ -19,6 +19,7 @@
     "@tailwindcss/vite": "^4.1.13",
     "astro": "^5.13.10",
     "astro-compressor": "^1.1.2",
+    "astro-embed": "^0.9.1",
     "astro-icon": "^1.1.5",
     "astro-og-canvas": "^0.7.2",
     "canvaskit-wasm": "^0.40.0",

@@ -1,0 +1,95 @@
+---
+title: "How I Migrated from Gitbook to Astro for My Blog"
+pubDate: 2025-10-15
+description: "I spent the last three weeks rebuilding my blog in a framework I have never worked with, just so I can have a prettier and more personalized blog using Astro."
+tags:
+  - dev
+  - astro
+  - blog
+---
+
+import { LinkPreview, YouTube } from "astro-embed";
+
+As someone learning cyber security, I play a lot of Capture the Flag competitions, and most of the time I'm either forced to make a writeup, or I just make one just to document my works to refer back when I need them. It's been about a year since I've used Gitbook to write my blog posts. I think Gitbook is a really good site to easily make posts with Markdown without having to think much about building a personal site, and a lot of my friends use Gitbook because of that reason. One day, I decided that I want a more personalized website for myself instead of the billion trillion other sites using Gitbook.
+
+## The Beginning
+
+My only experience with web development was using vanilla HTML/CSS/JS and some vibe coding with Vue frameworks for my college classes. I can say I was **not** qualified to build a website with Vue because I **barely** understand how it works. So, I tried to research the best beginner-friendly framework to start building a blog and I came across this blog post:
+
+<center>
+  <LinkPreview
+    id="https://www.joshwcomeau.com/blog/how-i-built-my-blog-v2/"
+    hideMedia
+  />
+</center>
+
+At first I was eyeing on Next.js for being an industry standard, but then this post made me look up **Astro**. So I told myself, "screw it" and I started learning the framework. My favorite video that I still refer back to just to look at how things work is this Crash Course from freecodecamp.org:
+
+<center>
+  <YouTube id="e-hTm5VmofI" />
+</center>
+
+Following this video for inspiration, I made myself a rough breakdown of everything I want in my site:
+
+1. Home page
+2. Page that shows more detail
+3. Page to display all blog posts
+4. Routing to all my blog posts (Migrate the Markdown from Gitbook here)
+
+## The Non-Blog Pages
+
+I know I'm not the best in developing good UI, but I know some tools that really helped me out:
+
+- **Tailwind**, really helps in writing styles. I know theres a lot of people who dislike Tailwind but I think it helped a lot. It also has the typography plugin that automatically styles Markdown for me.
+- **DaisyUI**, a Tailwind component library that streamlined the styling of a lot of components.
+
+For stuff that appears more dynamically, I used JSON mapping and it was a great refresher on using JavaScript to map data away.
+
+## The Distractions
+
+### Styling and Animations
+
+I have to admit: I'm a perfectionist. This is why I spent a lot of time styling everything instead of building new features. You can look at the [commit history](https://github.com/wintertia/personal-website/commits/main/) yourself. So I did another training arc to animate my components using GSAP. Personally this video was the most helpful resource, just because of the chapter in the beginning that explains basic GSAP principles.
+
+<center>
+  <YouTube id="AW1yfBKRMKc" />
+</center>
+
+The video only explained basic stuff at the beginning, but honestly that was enough for me to have the principles to use GSAP and learn more GSAP related tools. Combining this with Tailwind's styles and hover effects I think I did a pretty decent job at styling, because I think this was the first time of my styling everything seriously.
+
+### SEO (Search Engine Optimization)
+
+The Astro rabbit hole for SEO is an absolute beast. I had **zero** experience with SEO so this was a very educational addition to my website. At first it was manipulating Astro's props to make simple meta titles and description, but it ended up with me auto-generating OpenGraph images for each page I make.
+
+<center>
+  <LinkPreview id="https://github.com/delucis/astro-og-canvas" />
+</center>
+
+The package above really helped me to make simple and effective OpenGraph images for my site, here's an example!
+
+<center>
+  <LinkPreview id="http://wintertia.pages.dev/blog" />
+</center>
+
+### Git Commit Hooks
+
+Sometimes I write really bad code formatting, so I took my time to learn a lot about making my code look consistently clean. So I fell again in the rabbit hole and ended up learning Husky and Prettier. I was considering ESLint but my website isn't very TypeScript-focused so I skipped on it for now.
+
+<center>
+  <LinkPreview id="https://github.com/prettier/pretty-quick" />
+</center>
+
+With the power of pre-commit hooks, I can now write some really terrible indentation on my Astro HTML and have it automatically fixed with no effort!
+
+## The Blog Pages
+
+This was the part that confused me the most, but once I understood the thought process I think it wasn't too bad. Learning content collections was too much for my small brain but at the end of the day I survived implementing it and I did a great job making it tidy. So in short how it works:
+
+1. A content collections of posts, using MDX. I used MDX so I could have Astro components inside my posts, usually for easier embeds and most importantly my file download button.
+2. An /images folder together with my posts, for image optimization
+3. An /assets folder in /public, for file downloads
+4. All the content is sorted in folders that also make up the routing you see in the URL right now! (`/blog/2025/migrating-from-gitbook-to-astro`)
+
+## Conclusion
+
+Astro was unexpectedly a very great framework to learn, it has a lot of helpful tools and I still felt like I was learning something, and I recommend it for newcomers to web development due to how similar it is to using HTML, and when you're ready to bring in frameworks like React, Astro still supports it! Overall, I'm really happy with the result and I hope this blog looks good enough to read posts in. Anyways, thanks for reading my blog post. I hope this was helpful in some way.
