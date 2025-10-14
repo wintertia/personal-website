@@ -165,8 +165,7 @@ const { title, description } = Astro.props;
         const aboutTitleEl2 = document.querySelector(".about-title-2");
         const aboutCard2 = document.querySelector(".about-card-2");
         if (aboutTitleEl2 && aboutCard2) {
-          const aboutTitle = new SplitText(aboutTitleEl2, { type: "chars" });
-          gsap.from(aboutTitle.chars, {
+          gsap.from([".about-title-2"], {
             scrollTrigger: {
               trigger: aboutCard2,
               start: "top 70%",

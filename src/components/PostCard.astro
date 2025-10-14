@@ -15,19 +15,24 @@ const { post } = Astro.props;
       <div class="mb-1 truncate text-xl font-semibold">
         {post.data.title}
       </div>
-      <p class="text-base-content/70 line-clamp-2 text-justify">
+      <p class="text-base-content/70 mb-1 line-clamp-2 text-pretty">
         {post.data.description}
       </p>
-      <p class="text-base-content/70 text-sm">
-        Published on {post.data.pubDate.toLocaleDateString("en-US")} • Tags:
-        {
-          post.data.tags.map((tag, index) => (
-            <span>
-              {`${tag}${index < post.data.tags.length - 1 ? ", " : ""}`}
-            </span>
-          ))
-        }
-      </p>
+      <div class="text-base-content/50 truncate text-sm">
+        <p>
+          Published: {post.data.pubDate.toLocaleDateString("en-US")}
+        </p>
+        <p>
+          Tags:
+          {
+            post.data.tags.map((tag, index) => (
+              <span>
+                {`${tag}${index < post.data.tags.length - 1 ? ", " : ""}`}
+              </span>
+            ))
+          }
+        </p>
+      </div>
     </div>
   </abbr>
 </a>

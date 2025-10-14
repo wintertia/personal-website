@@ -12,19 +12,21 @@ export const { getStaticPaths, GET } = OGImageRoute({
   pages: {
     index: {
       title: "Wintertia",
+      description: "Amoes Noland",
     },
     dev: {
-      title: "Dev - Wintertia",
+      title: "Wintertia - Dev",
+      description: "Wintertia's personal projects",
     },
     blog: {
-      title: "Blog - Wintertia",
+      title: "Wintertia - Blog",
+      description: "Wintertia's personal blog",
     },
     ...Object.fromEntries(
       Object.entries(postPages).map(([id, data]) => [
         `blog/${id}`,
         {
           title: data.title,
-          description: data.description,
         },
       ]),
     ),
@@ -32,6 +34,7 @@ export const { getStaticPaths, GET } = OGImageRoute({
 
   getImageOptions: (path, page) => ({
     title: page.title,
+    description: page.description,
     logo: {
       path: "./src/images/logo.png",
       size: [200],
@@ -49,7 +52,12 @@ export const { getStaticPaths, GET } = OGImageRoute({
         weight: "Normal",
         color: [224, 222, 244],
       },
+      description: {
+        families: ["Iosevka Aile"],
+        weight: "Normal",
+        color: [144, 140, 170],
+      },
     },
-    padding: 100,
+    padding: 90,
   }),
 });
