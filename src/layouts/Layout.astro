@@ -69,11 +69,11 @@ const { title, description } = Astro.props;
 </html>
 
 <script>
+  await document.fonts.ready;
   import gsap from "gsap";
   import { ScrollSmoother } from "gsap/ScrollSmoother";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import { SplitText } from "gsap/SplitText";
-  await document.fonts.ready;
 
   /*
   i know this is like really unoptimized but it works yeah
