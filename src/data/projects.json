@@ -11,6 +11,16 @@
       "image": "personal-website.png"
     },
     {
+      "title": "QA Testing Insecure Book Library",
+      "points": [
+        "Developed a deliberately vulnerable web application to simulate QA testing scenarios",
+        "Identified critical vulnerabilities including SQL Injection, authentication bypass, and broken access control"
+      ],
+      "stack": ["Node.js", "Express", "SQLite", "Postman"],
+      "link": "https://github.com/wintertia/insecure-library",
+      "image": "insecure-library.png"
+    },
+    {
       "title": "Ubuntu WSL Dotfiles",
       "points": [
         "My personal workflow for Ubuntu on WSL",
