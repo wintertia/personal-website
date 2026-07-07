@@ -11,6 +11,16 @@
       "image": "personal-website.png"
     },
     {
+      "title": "GRIDLOST",
+      "points": [
+        "Turn-based roguelike web game with grid combat, procedural generation, and deep build system",
+        "Built unique skills, enemies, and bosses with their special abilities"
+      ],
+      "stack": ["HTML Canvas", "JavaScript"],
+      "link": "https://gridlost.wintertia.qzz.io",
+      "image": "gridlost.png"
+    },
+    {
       "title": "Insecure Book Library",
       "points": [
         "Developed a deliberately vulnerable web application for educational purposes",
@@ -19,16 +29,6 @@
       "stack": ["Node.js", "Express", "SQLite", "Postman"],
       "link": "https://github.com/wintertia/insecure-library",
       "image": "insecure-library.png"
-    },
-    {
-      "title": "GRIDLOST",
-      "points": [
-        "Turn-based roguelike web game with grid combat, procedural generation, and deep build system",
-        "Built unique skills, enemies, and bosses with their special abilities"
-      ],
-      "stack": ["HTML5 Canvas", "JavaScript", "jQuery"],
-      "link": "https://gridlost.wintertia.qzz.io",
-      "image": "gridlost.png"
     },
     {
       "title": "Ubuntu WSL Dotfiles",

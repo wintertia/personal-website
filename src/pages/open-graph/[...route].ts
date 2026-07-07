@@ -14,10 +14,6 @@ export const { getStaticPaths, GET } = OGImageRoute({
       title: "Wintertia",
       description: "Amoes Noland",
     },
-    dev: {
-      title: "Wintertia - Dev",
-      description: "Wintertia's personal projects",
-    },
     blog: {
       title: "Wintertia - Blog",
       description: "Wintertia's personal blog",

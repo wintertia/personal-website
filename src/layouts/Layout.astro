@@ -161,35 +161,6 @@ const { title, description } = Astro.props;
           });
         }
 
-        // About Animation 2
-        const aboutTitleEl2 = document.querySelector(".about-title-2");
-        const aboutCard2 = document.querySelector(".about-card-2");
-        if (aboutTitleEl2 && aboutCard2) {
-          gsap.from([".about-title-2"], {
-            scrollTrigger: {
-              trigger: aboutCard2,
-              start: "top 70%",
-            },
-            duration: 1,
-            opacity: 0,
-            yPercent: -100,
-            ease: "power2.out",
-            stagger: 0.05,
-          });
-          gsap.from([".about-card-2"], {
-            scrollTrigger: {
-              trigger: aboutCard2,
-              start: "top 70%",
-            },
-            duration: 1,
-            opacity: 0,
-            yPercent: -20,
-            ease: "power2.out",
-            delay: 0.25,
-            stagger: 0.1,
-          });
-        }
-
         // Stacks Animation
         const stackTitleEl = document.querySelector(".stack-title");
         const stackSubtitleEl = document.querySelector(".stack-subtitle");

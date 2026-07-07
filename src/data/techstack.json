@@ -16,10 +16,16 @@
     "Markdown",
     "Git",
     "Docker",
+    "Ansible",
     "Express",
+    "SQLite",
     "MongoDB",
     "Node",
     "NPM",
-    "Cloudflare"
+    "Cloudflare",
+    "GCP",
+    "VSCode",
+    "Zed",
+    "Vim"
   ]
 }

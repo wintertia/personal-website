@@ -5,6 +5,8 @@ import About from "../components/About.astro";
 import Footer from "../components/Footer.astro";
 import Hero from "../components/Hero.astro";
 import Posts from "../components/Posts.astro";
+import Projects from "../components/Projects.astro";
+import Stack from "../components/Stack.astro";
 import Layout from "../layouts/Layout.astro";
 
 const posts = await getCollection("posts").then(
@@ -17,5 +19,7 @@ const posts = await getCollection("posts").then(
   <Hero />
   <Posts posts={posts} short={true} />
   <About />
+  <Stack />
+  <Projects />
   <Footer />
 </Layout>
