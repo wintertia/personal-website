@@ -19,18 +19,85 @@ import ProjectCard from "./ProjectCard.astro";
     </div>
   </div>
   <div
+    id="projects-grid"
     class="align-stretch relative z-10 m-8 flex min-h-100 flex-row flex-wrap justify-center gap-8"
   >
     {
-      projects.data.map((project) => (
-        <ProjectCard
-          title={project.title}
-          points={project.points}
-          stack={project.stack}
-          link={project.link}
-          image={project.image}
-        />
+      projects.data.map((project, i) => (
+        <div
+          class={i >= 3 ? "project-hidden" : ""}
+          data-extra={i >= 3 ? "" : undefined}
+        >
+          <ProjectCard
+            title={project.title}
+            points={project.points}
+            stack={project.stack}
+            link={project.link}
+            image={project.image}
+          />
+        </div>
       ))
     }
   </div>
+  {
+    projects.data.length > 3 && (
+      <div class="relative z-10 flex justify-center">
+        <button
+          id="show-all-projects"
+          class="from-base-300 to-base-300 hover:from-base-200 border-base-300 hover:border-primary rounded-lg border bg-gradient-to-b px-8 py-2 transition duration-500 ease-in-out hover:scale-105"
+        >
+          Show All
+        </button>
+      </div>
+    )
+  }
 </div>
+
+<style>
+  .project-hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  import gsap from "gsap";
+
+  document.addEventListener("astro:page-load", () => {
+    const btn = document.getElementById("show-all-projects");
+    const grid = document.getElementById("projects-grid");
+    if (!btn || !grid) return;
+
+    const extra = grid.querySelectorAll("[data-extra]");
+
+    btn.addEventListener("click", () => {
+      const isShowing = !extra[0]?.classList.contains("project-hidden");
+
+      if (isShowing) {
+        gsap.to([...extra].reverse(), {
+          duration: 0.3,
+          opacity: 0,
+          yPercent: 20,
+          ease: "power2.in",
+          stagger: 0.05,
+          onComplete: () => {
+            extra.forEach((el) => {
+              el.classList.add("project-hidden");
+              gsap.set(el, { clearProps: "all" });
+            });
+          },
+        });
+        btn.textContent = "Show All";
+      } else {
+        extra.forEach((el) => el.classList.remove("project-hidden"));
+        gsap.from(extra, {
+          duration: 0.6,
+          opacity: 0,
+          yPercent: 20,
+          ease: "power2.out",
+          stagger: 0.1,
+        });
+        btn.textContent = "Show Less";
+      }
+    });
+  });
+</script>

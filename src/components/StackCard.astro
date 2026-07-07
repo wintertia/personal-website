@@ -10,6 +10,7 @@ const { name } = Astro.props;
 
 <div class="stack-card">
   <div
+    data-tooltip={name}
     class="from-base-200 to-base-200 hover:to-base-300 border-neutral h-16 w-16 rounded-lg border-2 bg-gradient-to-b p-4 transition-colors duration-300 ease-in-out md:h-24 md:w-24 lg:h-32 lg:w-32"
   >
     <Icon name={`techstack/${name}`} size="100%" />
